@@ -8,7 +8,7 @@ sub GetContent()
     ' request the content feed from the API
     xfer = CreateObject("roURLTransfer")
     xfer.SetCertificatesFile("common:/certs/ca-bundle.crt")
-    xfer.SetURL("https://shugga228.github.io/jsonhost/main2.json")
+    xfer.SetURL("https://shugga228.github.io/rokuFitness/content.json")
     rsp = xfer.GetToString()
     rootChildren = []
     rows = {}
