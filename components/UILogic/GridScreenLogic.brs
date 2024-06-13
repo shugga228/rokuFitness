@@ -11,8 +11,7 @@ end sub
 
 sub OnGridScreenItemSelected(event as Object) ' invoked when GridScreen item is selected
 
-    button = m.top.FindNode("greenButton")
-    button1 = m.top.FindNode("redButton")
+    ring = m.top.FindNode("ring")
     label = m.top.FindNode("counter")
 
     caloriesBurned = label.text.ToInt()
@@ -21,10 +20,16 @@ sub OnGridScreenItemSelected(event as Object) ' invoked when GridScreen item is 
 
     caloriesBurned = caloriesBurned + 500
 
-    if caloriesBurned >= calorieGoal then
-        button.visible = "true"
-        button1.visible = "false"
+    barPercent = (caloriesBurned * 100) / calorieGoal
+
+   if barPercent >= 100 then
+        ringString = "100"
+    else
+      ringString = barPercent.ToStr()
     end if
+
+    
+    ring.iconUri = "pkg:/images/ring/" + ringString + ".png"
 
     label.text = caloriesBurned
 

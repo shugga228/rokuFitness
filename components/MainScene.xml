@@ -28,11 +28,10 @@
         />
 
         
-        <Label id="goalLabel" text="Daily Calorie Goal: 2500" visible="true" translation="[800,75]" horizAlign="center" vertAlign="center" font="font:MediumBoldSystemFont"/>
-        <Label id="burnLabel" text="Goal Met Indicator: " visible="true" translation="[800,125]" horizAlign="center" vertAlign="center" font="font:MediumBoldSystemFont"/>
-        <Label id="counter" text="0" visible="true" translation="[1100,175]" horizAlign="center" vertAlign="center" font="font:MediumBoldSystemFont"/>
-        <Button id="greenButton" text=" " textColor="0xff0000ff" iconUri="pkg:/images/buttonGreen.png" focusedTextColor="0xff0000ff" width="50" height="50" translation="[1000, 115]" visible="false"/>
-        <Button id="redButton" text=" " textColor="0xff0000ff" iconUri="pkg:/images/buttonRed.png" focusedTextColor="0xff0000ff" width="50" height="50" translation="[1000, 115]" visible="true"/>
+        <Label id="goalLabel" text="Daily Calorie Goal: 2500" visible="true" translation="[600,75]" horizAlign="center" vertAlign="center" font="font:MediumBoldSystemFont"/>
+        <Label id="burnLabel" text="Goal Met Indicator: " visible="true" translation="[600,125]" horizAlign="center" vertAlign="center" font="font:MediumBoldSystemFont"/>
+        <Label id="counter" text="0" visible="true" translation="[1120,100]" horizAlign="center" vertAlign="center" font="font:MediumBoldSystemFont"/>
+        <Button id="ring" text=" " textColor="0xff0000ff" iconUri="pkg:/images/ring/0.png" focusedTextColor="0xff0000ff" width="40" height="40" translation="[1000, 100]" visible="true"/>
 
 
         
