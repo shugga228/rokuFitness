@@ -5,7 +5,7 @@
     "Cardio": [
         {
             "longDescription": "High intensity cardio, short and fast, or long sessions on the treadmill and stairmaster.",
-            "thumbnail": "https://as2.ftcdn.net/v2/jpg/05/45/68/09/1000_F_545680976_Y12Lq3qaIPSCA1zOaR2ONVgjKjw98raA.jpg",
+            "thumbnail": "https://shugga228.github.io/rokuFitness/timerImages/15min.png",
             "releaseDate": "2020-01-15",
             "genres": ["educational"],
             "tags": ["getting-started"],
@@ -26,7 +26,7 @@
         },
         {
             "longDescription": "Enhance endurance and burn calories effectively with this 30-minute Cardio session.",
-            "thumbnail": "https://as2.ftcdn.net/v2/jpg/05/45/68/09/1000_F_545680947_5tbZazmJlFz8XL5pLpjWNCTbNpuswQql.jpg",
+            "thumbnail": "https://shugga228.github.io/rokuFitness/timerImages/30min.png",
             "releaseDate": "2020-01-15",
             "genres": ["educational"],
             "tags": ["getting-started"],
@@ -47,7 +47,7 @@
         },
         {
             "longDescription": "Comprehensive 45-minute Cardio workout suitable for all fitness levels.",
-            "thumbnail": "https://as2.ftcdn.net/v2/jpg/05/45/68/09/1000_F_545680928_KN4Ahk13UB9wzLJJLiiwAknqdiXZrrwH.jpg",
+            "thumbnail": "https://shugga228.github.io/rokuFitness/timerImages/45min.png",
             "releaseDate": "2020-01-17",
             "genres": ["educational"],
             "tags": ["getting-started"],
@@ -68,7 +68,7 @@
         },
         {
             "longDescription": "Complete 60-minute Cardio session to enhance stamina and overall fitness level.",
-            "thumbnail": "https://as1.ftcdn.net/v2/jpg/05/45/68/08/1000_F_545680895_7wCr9agAySW5tUD1nCBJVd5VqXIOpQwP.jpg",
+            "thumbnail": "https://shugga228.github.io/rokuFitness/timerImages/60min.png",
             "releaseDate": "2020-01-17",
             "genres": ["educational"],
             "tags": ["feature"],
@@ -91,7 +91,7 @@
     "Yoga": [
         {
             "longDescription": "Rejuvenating 15-minute Yoga session for all levels.",
-            "thumbnail": "https://as2.ftcdn.net/v2/jpg/05/45/68/09/1000_F_545680976_Y12Lq3qaIPSCA1zOaR2ONVgjKjw98raA.jpg",
+            "thumbnail": "https://shugga228.github.io/rokuFitness/timerImages/15min.png",
             "releaseDate": "2020-01-20",
             "genres": ["educational"],
             "tags": ["demo"],
@@ -112,7 +112,7 @@
         },
         {
             "longDescription": "Transformative 30-minute Yoga session to improve flexibility and reconnect with yourself.",
-            "thumbnail": "https://as2.ftcdn.net/v2/jpg/05/45/68/09/1000_F_545680947_5tbZazmJlFz8XL5pLpjWNCTbNpuswQql.jpg",
+            "thumbnail": "https://shugga228.github.io/rokuFitness/timerImages/30min.png",
             "releaseDate": "2020-01-20",
             "genres": ["educational"],
             "tags": ["demo"],
@@ -133,7 +133,7 @@
         },
         {
             "longDescription": "Deepen your practice with a 45-minute Yoga session promoting strength and inner peace.",
-            "thumbnail": "https://as2.ftcdn.net/v2/jpg/05/45/68/09/1000_F_545680928_KN4Ahk13UB9wzLJJLiiwAknqdiXZrrwH.jpg",
+            "thumbnail": "https://shugga228.github.io/rokuFitness/timerImages/45min.png",
             "releaseDate": "2020-01-20",
             "genres": ["educational"],
             "tags": ["demo"],
