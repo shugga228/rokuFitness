@@ -151,6 +151,115 @@
                 "dateAdded": "2020-01-29T02:39:11Z",
                 "calories": 1500
             }
+        },
+        {
+            "longDescription": "Deepen your practice with a 60-minute Yoga session promoting strength and inner peace.",
+            "thumbnail": "https://shugga228.github.io/rokuFitness/timerImages/60min.png",
+            "releaseDate": "2020-01-20",
+            "genres": ["educational"],
+            "tags": ["demo"],
+            "id": "shortform-a59a8c9b7140da32b98cb91fe415a2e3e7dc0660",
+            "shortDescription": " ",
+            "title": "1500",
+            "content": {
+                "duration": 3600,
+                "videos": [{
+                    "videoType": "MP4",
+                    "url": "https://videos.pexels.com/video-files/4319310/4319310-hd_1920_1080_30fps.mp4",
+                    "quality": "HD"
+                }],
+                "language": "en-us",
+                "dateAdded": "2020-01-29T02:39:11Z",
+                "calories": 2000
+            }
         }
+
+    ],
+    "Strength": [
+        {
+            "longDescription": "Easy to follow 15-minute Strength training session for all levels.",
+            "thumbnail": "https://shugga228.github.io/rokuFitness/timerImages/15min.png",
+            "releaseDate": "2020-01-20",
+            "genres": ["educational"],
+            "tags": ["demo"],
+            "id": "shortform-b2500d7849ec949799cb1d5d0155c6f1eba3308a",
+            "shortDescription": " ",
+            "title": "500",
+            "content": {
+                "duration": 900,
+                "videos": [{
+                    "videoType": "MP4",
+                    "url": "https://videos.pexels.com/video-files/855642/855642-hd_1920_1080_25fps.mp4",
+                    "quality": "HD"
+                }],
+                "language": "en-us",
+                "dateAdded": "2020-01-29T02:39:11Z",
+                "calories": 250
+            }
+        },
+        {
+            "longDescription": "More intensive 30-minute Strength training workout for all levels.",
+            "thumbnail": "https://shugga228.github.io/rokuFitness/timerImages/30min.png",
+            "releaseDate": "2020-01-20",
+            "genres": ["educational"],
+            "tags": ["demo"],
+            "id": "shortform-4374be10035077242dde8b7fe272e509ad6e563a",
+            "shortDescription": " ",
+            "title": "1000",
+            "content": {
+                "duration": 1800,
+                "videos": [{
+                    "videoType": "MP4",
+                    "url": "https://videos.pexels.com/video-files/2871918/2871918-hd_1920_1080_30fps.mp4",
+                    "quality": "HD"
+                }],
+                "language": "en-us",
+                "dateAdded": "2020-01-29T02:39:10Z",
+                "calories": 1000
+            }
+        },
+        {
+            "longDescription": "Deepen your practice with a 45-minute Strength training session promoting strength and core strength.",
+            "thumbnail": "https://shugga228.github.io/rokuFitness/timerImages/45min.png",
+            "releaseDate": "2020-01-20",
+            "genres": ["educational"],
+            "tags": ["demo"],
+            "id": "shortform-a59a8c9b7140da32b98cb91fe415a2e3e7dc0660",
+            "shortDescription": " ",
+            "title": "1500",
+            "content": {
+                "duration": 2700,
+                "videos": [{
+                    "videoType": "MP4",
+                    "url": "https://videos.pexels.com/video-files/4319310/4319310-hd_1920_1080_30fps.mp4",
+                    "quality": "HD"
+                }],
+                "language": "en-us",
+                "dateAdded": "2020-01-29T02:39:11Z",
+                "calories": 1500
+            }
+        },
+        {
+            "longDescription": "Deepen your practice with a 60-minute Strength training session promoting strength and wellness.",
+            "thumbnail": "https://shugga228.github.io/rokuFitness/timerImages/60min.png",
+            "releaseDate": "2020-01-20",
+            "genres": ["educational"],
+            "tags": ["demo"],
+            "id": "shortform-a59a8c9b7140da32b98cb91fe415a2e3e7dc0660",
+            "shortDescription": " ",
+            "title": "1500",
+            "content": {
+                "duration": 3600,
+                "videos": [{
+                    "videoType": "MP4",
+                    "url": "https://videos.pexels.com/video-files/4319310/4319310-hd_1920_1080_30fps.mp4",
+                    "quality": "HD"
+                }],
+                "language": "en-us",
+                "dateAdded": "2020-01-29T02:39:11Z",
+                "calories": 2000
+            }
+        }
+
     ]
 }
