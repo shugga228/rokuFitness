@@ -14,6 +14,7 @@ sub OnGridScreenItemSelected(event as Object) ' invoked when GridScreen item is 
     ring = m.top.FindNode("ring")
     label = m.top.FindNode("counter")
     calories = m.top.FindNode("titleLabel")
+    notification = m.top.FindNode("goalLabel")
 
     caloriesBurned = label.text.ToInt()
     calorieGoal = 5000
@@ -25,6 +26,8 @@ sub OnGridScreenItemSelected(event as Object) ' invoked when GridScreen item is 
 
    if barPercent >= 100 then
         ringString = "100"
+        notification.text = "Daily Goal Met"
+        notification.color = "0x77eb34ff"
     else
       ringString = barPercent.ToStr()
     end if
