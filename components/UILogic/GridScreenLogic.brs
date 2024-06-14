@@ -16,7 +16,7 @@ sub OnGridScreenItemSelected(event as Object) ' invoked when GridScreen item is 
     calories = m.top.FindNode("titleLabel")
 
     caloriesBurned = label.text.ToInt()
-    calorieGoal = 2500
+    calorieGoal = 5000
 
 
     caloriesBurned = caloriesBurned + calories.text.ToInt()
