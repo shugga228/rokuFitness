@@ -13,12 +13,13 @@ sub OnGridScreenItemSelected(event as Object) ' invoked when GridScreen item is 
 
     ring = m.top.FindNode("ring")
     label = m.top.FindNode("counter")
+    calories = m.top.FindNode("titleLabel")
 
     caloriesBurned = label.text.ToInt()
     calorieGoal = 2500
 
 
-    caloriesBurned = caloriesBurned + 500
+    caloriesBurned = caloriesBurned + calories.text.ToInt()
 
     barPercent = (caloriesBurned * 100) / calorieGoal
 
