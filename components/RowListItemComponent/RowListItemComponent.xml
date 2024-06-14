@@ -9,9 +9,9 @@
         <Poster
             id="poster"
             loadDisplayMode="scaleToFit"
-            width="320"
+            width="180"
             height="180"
-            loadWidth="320"
+            loadWidth="180"
             loadHeight="180"
         />
     </children>
