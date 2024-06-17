@@ -29,7 +29,7 @@ sub OnItemFocused() ' invoked when another item is focused
     m.titleLabel.text = item.title
     ' adding length of playback to the title if item length field was populated
     if item.length <> invalid
-        m.titleLabel.text += " Calories (estimation) | " + GetTime(item.length)
+        m.titleLabel.text += " Calories (estimated) | " + GetTime(item.length)
     end if
 end sub
 
