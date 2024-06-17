@@ -16,6 +16,7 @@ sub OnGridScreenItemSelected(event as Object) ' invoked when GridScreen item is 
     title = m.top.FindNode("titleLabel")
     notification = m.top.FindNode("goalLabel")
     weight = m.top.FindNode("weight")
+    des = m.top.FindNode("descriptionLabel")
     
 
 
@@ -24,7 +25,8 @@ sub OnGridScreenItemSelected(event as Object) ' invoked when GridScreen item is 
     calorieGoal = notification.text.Replace("Daily Calorie Goal:", "").ToInt()
 
     ' Formula for calculating calories burned: METS X 3.5 X BW (KG) / 200 X MIN = KCAL
-    METS = 1 
+    index = des.text.Len() - des.text.Instr("|")
+    METS = des.text.Right(index - 1).Replace("METS", "").ToInt()
     min = title.text.Right(5).Left(2).ToInt()
     caloriesBurned = Fix((METS * 3.5 * weightInt / 200 * min) + caloriesBurned)
 
@@ -51,4 +53,5 @@ sub OnGridScreenItemSelected(event as Object) ' invoked when GridScreen item is 
     rowContent = grid.content.GetChild(m.selectedIndex[0])
     itemIndex = m.selectedIndex[1]
     ShowVideoScreen(rowContent, itemIndex)
+
 end sub
