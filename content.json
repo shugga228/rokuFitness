@@ -4,7 +4,7 @@
     "lastUpdated": "2024-03-15T02:01:00+02:00",
     "Cardio": [
         {
-            "longDescription": "High intensity cardio, short and fast, or long sessions on the treadmill and stairmaster.",
+            "longDescription": "Running 5 mph | 8.0 METS",
             "thumbnail": "https://shugga228.github.io/rokuFitness/timerImages/15min.png",
             "releaseDate": "2020-01-15",
             "genres": ["educational"],
@@ -25,7 +25,7 @@
             }
         },
         {
-            "longDescription": "Enhance endurance and burn calories effectively with this 30-minute Cardio session.",
+            "longDescription": "Running 7 mph | 11.5 METS",
             "thumbnail": "https://shugga228.github.io/rokuFitness/timerImages/30min.png",
             "releaseDate": "2020-01-15",
             "genres": ["educational"],
@@ -46,7 +46,7 @@
             }
         },
         {
-            "longDescription": "Comprehensive 45-minute Cardio workout suitable for all fitness levels.",
+            "longDescription": "Running 10 mph | 16.0 METS",
             "thumbnail": "https://shugga228.github.io/rokuFitness/timerImages/45min.png",
             "releaseDate": "2020-01-17",
             "genres": ["educational"],
@@ -67,7 +67,7 @@
             }
         },
         {
-            "longDescription": "Complete 60-minute Cardio session to enhance stamina and overall fitness level.",
+            "longDescription": "Bicycling 13 mph | 10.0 METS",
             "thumbnail": "https://shugga228.github.io/rokuFitness/timerImages/60min.png",
             "releaseDate": "2020-01-17",
             "genres": ["educational"],
@@ -88,9 +88,9 @@
             }
         }
     ],
-    "Yoga": [
+    "Conditioning": [
         {
-            "longDescription": "Rejuvenating 15-minute Yoga session for all levels.",
+            "longDescription": "Weight Lifting | 6.0 METS",
             "thumbnail": "https://shugga228.github.io/rokuFitness/timerImages/15min.png",
             "releaseDate": "2020-01-20",
             "genres": ["educational"],
@@ -111,7 +111,7 @@
             }
         },
         {
-            "longDescription": "Transformative 30-minute Yoga session to improve flexibility and reconnect with yourself.",
+            "longDescription": "Circuit Training | 8.0 METS",
             "thumbnail": "https://shugga228.github.io/rokuFitness/timerImages/30min.png",
             "releaseDate": "2020-01-20",
             "genres": ["educational"],
@@ -132,7 +132,7 @@
             }
         },
         {
-            "longDescription": "Deepen your practice with a 45-minute Yoga session promoting strength and inner peace.",
+            "longDescription": "Light Calisthenics | 3.5 METS",
             "thumbnail": "https://shugga228.github.io/rokuFitness/timerImages/45min.png",
             "releaseDate": "2020-01-20",
             "genres": ["educational"],
@@ -153,7 +153,7 @@
             }
         },
         {
-            "longDescription": "Deepen your practice with a 60-minute Yoga session promoting strength and inner peace.",
+            "longDescription": "Peaceful Yoga | 2.5 METS",
             "thumbnail": "https://shugga228.github.io/rokuFitness/timerImages/60min.png",
             "releaseDate": "2020-01-20",
             "genres": ["educational"],
@@ -175,9 +175,9 @@
         }
 
     ],
-    "Strength": [
+    "Sports": [
         {
-            "longDescription": "Easy to follow 15-minute Strength training session for all levels.",
+            "longDescription": "General Boxing | 12.0 METS",
             "thumbnail": "https://shugga228.github.io/rokuFitness/timerImages/15min.png",
             "releaseDate": "2020-01-20",
             "genres": ["educational"],
@@ -198,7 +198,7 @@
             }
         },
         {
-            "longDescription": "More intensive 30-minute Strength training workout for all levels.",
+            "longDescription": "Football (non-tackle) | 8.0 METS",
             "thumbnail": "https://shugga228.github.io/rokuFitness/timerImages/30min.png",
             "releaseDate": "2020-01-20",
             "genres": ["educational"],
@@ -219,7 +219,7 @@
             }
         },
         {
-            "longDescription": "Deepen your practice with a 45-minute Strength training session promoting strength and core strength.",
+            "longDescription": "Tennis Practice | 7.0 METS",
             "thumbnail": "https://shugga228.github.io/rokuFitness/timerImages/45min.png",
             "releaseDate": "2020-01-20",
             "genres": ["educational"],
@@ -240,7 +240,7 @@
             }
         },
         {
-            "longDescription": "Deepen your practice with a 60-minute Strength training session promoting strength and wellness.",
+            "longDescription": "Golf Conditioning | 4.5 METS",
             "thumbnail": "https://shugga228.github.io/rokuFitness/timerImages/60min.png",
             "releaseDate": "2020-01-20",
             "genres": ["educational"],
