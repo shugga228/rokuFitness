@@ -16,11 +16,12 @@ sub OnGridScreenItemSelected(event as Object) ' invoked when GridScreen item is 
     title = m.top.FindNode("titleLabel")
     notification = m.top.FindNode("goalLabel")
     weight = m.top.FindNode("weight")
+    
 
 
     weightInt = weight.text.Replace("kg", "").ToInt()
     caloriesBurned = count.text.ToInt()
-    calorieGoal = 5000
+    calorieGoal = notification.text.Replace("Daily Calorie Goal:", "").ToInt()
 
     ' Formula for calculating calories burned: METS X 3.5 X BW (KG) / 200 X MIN = KCAL
     METS = 1 
@@ -33,7 +34,6 @@ sub OnGridScreenItemSelected(event as Object) ' invoked when GridScreen item is 
 
    if barPercent >= 100 then
         ringString = "100"
-        notification.text = "Daily Goal Met"
         notification.color = "0x77eb34ff"
     else
       ringString = barPercent.ToStr()
