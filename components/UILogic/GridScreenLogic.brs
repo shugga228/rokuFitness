@@ -24,6 +24,8 @@ sub OnGridScreenItemSelected(event as Object) ' invoked when GridScreen item is 
 
     barPercent = (caloriesBurned * 100) / calorieGoal
 
+    barPercent = Fix(barPercent)
+
    if barPercent >= 100 then
         ringString = "100"
         notification.text = "Daily Goal Met"
