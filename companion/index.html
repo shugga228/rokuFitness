@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roku Remote Control</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script>
+        let IP = "nothing :("; // ip address of roku
+
+        function sendCommand(command) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", `http://${IP}:8060/keypress/` + command, true);
+            xhr.send();
+        }
+
+        function sendTextInput(text) {
+            let characters = text.split('');
+
+            // adds delay
+            function sendCharacter(index) {
+                if (index < characters.length) {
+                    let char = characters[index];
+                    let encodedChar = encodeURIComponent(char);
+                    sendCommand(`Lit_${encodedChar}`);
+
+                    setTimeout(() => {
+                        sendCharacter(index + 1);
+                    }, 100); 
+                }
+            }
+
+            // starting with index 0
+            sendCharacter(0);
+        }
+
+        document.addEventListener("DOMContentLoaded", (event) => {
+            const ipLabel = document.getElementById("ip-label");
+            const ipInput = document.getElementById("ip-input");
+
+            // connect to IP
+            ipLabel.textContent = `Connected to: ${IP}`;
+
+            // IP address input handling
+            ipInput.addEventListener("change", () => {
+                IP = ipInput.value.trim(); // Update IP address
+                ipLabel.textContent = `Connected to: ${IP}`; // Update label
+            });
+
+            // text input handling
+            document.getElementById("text-input").addEventListener("keydown", (event) => {
+                if (event.key === "Enter") {
+                    let text = event.target.value;
+                    sendTextInput(text);
+                    event.target.value = ""; // clears text box
+                    event.preventDefault(); 
+                }
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <div id="remote-container">
+        <h3>Roku Remote Control</h3>
+        <div id="ip-container">
+            <span id="ip-label">Connected to: not connected</span>
+            <input type="text" id="ip-input" placeholder="enter IP address" />
+        </div>
+        <div>
+            <h3>Text Input</h3>
+            <input type="text" id="text-input" placeholder="enter text input" />
+        </div>
+        <div class="button-row">
+            <button onclick="sendCommand('Select')">Select</button>
+        </div>
+    </div>
+</body>
+</html>
