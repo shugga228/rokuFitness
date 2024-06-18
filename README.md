@@ -1,3 +1,9 @@
 # rokuFitness
-main branch 
-check other branches for main app (brightscript / xml) and companion app (React) 
+## main branch 
+
+check other branches for code:
+
+  * companionApp (react)
+  * mainApp (brightscript, xml)
+  * contentHost (images, json)
+  * companionDesk (html)
