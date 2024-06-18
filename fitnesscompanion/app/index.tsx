@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
   },
   image2: {
     width: '60%', // Adjust the width as per your requirement
-    height: '20%', // Adjust the height as per your requirement
+    height: '25%', // Adjust the height as per your requirement
     margin: 20,
     borderRadius: 20,
   },
