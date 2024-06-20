@@ -21,7 +21,7 @@ const App = () => {
     };
 
     try {
-      const response = await fetch('https://example.com/api/connect', {
+      const response = await fetch('http://172.16.19.104:8060/keypress/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
