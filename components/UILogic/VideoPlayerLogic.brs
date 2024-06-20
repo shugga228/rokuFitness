@@ -1,7 +1,9 @@
-
 sub ShowVideoScreen(content as Object, itemIndex as Integer)
-     m.videoPlayer = CreateObject("roSGNode", "Video") ' create new instance of video node for each playback
+    m.videoPlayer = CreateObject("roSGNode", "Video") ' create new instance of video node for each playback
     ' for cases when user select second, third etc. item in the row we use the following workaround
+    m.videoPlayer.width = 1000 ' set the desired width
+    m.videoPlayer.height = 563 ' set the desired height
+    m.videoPlayer.translation = [140,210] ' set the desired position 
     if itemIndex <> 0 ' check if user select any but first item of the row
         numOfChildren = content.GetChildCount() ' get number of row items
         ' populate children array only with  items started from selected one
@@ -25,6 +27,7 @@ sub ShowVideoScreen(content as Object, itemIndex as Integer)
     m.videoPlayer.control = "play" ' start playback
     m.videoPlayer.ObserveField("state", "OnVideoPlayerStateChange")
     m.videoPlayer.ObserveField("visible", "OnVideoVisibleChange")
+
 end sub
 
 sub OnVideoPlayerStateChange() ' invoked when video state is changed
