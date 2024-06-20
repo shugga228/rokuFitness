@@ -37,7 +37,7 @@ h3 {
 }
 
 button {
-    background-color: #4CAF50;
+    background-color: #662D91;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -51,7 +51,7 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #522575;
 }
 
 input[type="text"] {
@@ -97,12 +97,12 @@ body {
 }
 
 button {
-    background-color: #4CAF50;
+    background-color: #662D91;
     color: white;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #522575;
 }
 
 input[type="text"] {

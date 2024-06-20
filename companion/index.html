@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Roku Remote Control</title>
+    <title>roku fitness app companion</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <script>
         let IP = "nothing :("; // ip address of roku
@@ -39,12 +39,12 @@
             const ipInput = document.getElementById("ip-input");
 
             // connect to IP
-            ipLabel.textContent = `Connected to: ${IP}`;
+            ipLabel.textContent = `connected to: ${IP}`;
 
             // IP address input handling
             ipInput.addEventListener("change", () => {
                 IP = ipInput.value.trim(); // Update IP address
-                ipLabel.textContent = `Connected to: ${IP}`; // Update label
+                ipLabel.textContent = `connected to: ${IP}`; // Update label
             });
 
             // text input handling
@@ -62,18 +62,20 @@
 </head>
 <body>
     <div id="remote-container">
-        <h3>rokuFitness Companion</h3>
+        <h3>roku fitness app companion</h3>
         <div id="ip-container">
-            <span id="ip-label">Connected to: not connected</span>
+            <span id="ip-label">connected to: not connected</span>
             <input type="text" id="ip-input" placeholder="enter IP address" />
         </div>
         <div>
-            <h3>Text Input</h3>
+            <span id="ip-label">input stats</span>
             <input type="text" id="text-input" placeholder="enter text manually" />
         </div>
-        <div class="button-row">
-            <button onclick="sendCommand('Select')">OK</button>
-        </div>
+        
+    <div class="button-row">
+        <button onclick="sendCommand('Select')">OK</button>
     </div>
+    </div>
+
 </body>
 </html>
