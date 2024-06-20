@@ -11,12 +11,36 @@ end sub
 
 sub OnGridScreenItemSelected(event as Object) ' invoked when GridScreen item is selected
 
+    title = m.top.FindNode("titleLabel")
+    timer = m.top.findNode("testTimer")
+
+    min = title.text.Right(5).Left(2).ToInt()
+
+    timer.control = "start"
+    timer.duration = "3"
+    timer.repeat = false
+    timer.ObserveField("fire", "addCal")
+
+
+    grid = event.GetRoSGNode()
+    ' extract the row and column indexes of the item the user selected
+    m.selectedIndex = event.GetData()
+    ' the entire row from the RowList will be used by the Video node
+    rowContent = grid.content.GetChild(m.selectedIndex[0])
+    itemIndex = m.selectedIndex[1]
+    ShowVideoScreen(rowContent, itemIndex)
+
+end sub
+
+function addCal()
+
     ring = m.top.FindNode("ring")
     count = m.top.FindNode("counter")
     title = m.top.FindNode("titleLabel")
     notification = m.top.FindNode("goalLabel")
     weight = m.top.FindNode("weight")
     des = m.top.FindNode("descriptionLabel")
+
     
     weightInt = weight.text.Replace("kg", "").ToInt()
     caloriesBurned = count.text.ToInt()
@@ -26,6 +50,7 @@ sub OnGridScreenItemSelected(event as Object) ' invoked when GridScreen item is 
     index = des.text.Len() - des.text.Instr("|")
     METS = des.text.Right(index - 1).Replace("METS", "").ToInt()
     min = title.text.Right(5).Left(2).ToInt()
+
     caloriesBurned = Fix((METS * 3.5 * weightInt / 200 * min) + caloriesBurned)
 
     barPercent = (caloriesBurned * 100) / calorieGoal
@@ -44,12 +69,4 @@ sub OnGridScreenItemSelected(event as Object) ' invoked when GridScreen item is 
 
     count.text = caloriesBurned.ToStr()
 
-    grid = event.GetRoSGNode()
-    ' extract the row and column indexes of the item the user selected
-    m.selectedIndex = event.GetData()
-    ' the entire row from the RowList will be used by the Video node
-    rowContent = grid.content.GetChild(m.selectedIndex[0])
-    itemIndex = m.selectedIndex[1]
-    ShowVideoScreen(rowContent, itemIndex)
-
-end sub
+end function

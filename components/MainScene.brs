@@ -23,6 +23,8 @@ function OnkeyEvent(key as String, press as Boolean) as Boolean
             if numberOfScreens > 1
                 CloseScreen(invalid)
                 result = true
+                timer = m.top.findNode("testTimer")
+                timer.control = "stop"
             end if
         end if
     end if
