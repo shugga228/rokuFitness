@@ -18,8 +18,6 @@ sub OnGridScreenItemSelected(event as Object) ' invoked when GridScreen item is 
     weight = m.top.FindNode("weight")
     des = m.top.FindNode("descriptionLabel")
     
-
-
     weightInt = weight.text.Replace("kg", "").ToInt()
     caloriesBurned = count.text.ToInt()
     calorieGoal = notification.text.Replace("Daily Calorie Goal:", "").ToInt()

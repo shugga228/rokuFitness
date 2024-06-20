@@ -1,5 +1,6 @@
+
 sub ShowVideoScreen(content as Object, itemIndex as Integer)
-    m.videoPlayer = CreateObject("roSGNode", "Video") ' create new instance of video node for each playback
+     m.videoPlayer = CreateObject("roSGNode", "Video") ' create new instance of video node for each playback
     ' for cases when user select second, third etc. item in the row we use the following workaround
     m.videoPlayer.width = 1000 ' set the desired width
     m.videoPlayer.height = 563 ' set the desired height
@@ -27,7 +28,6 @@ sub ShowVideoScreen(content as Object, itemIndex as Integer)
     m.videoPlayer.control = "play" ' start playback
     m.videoPlayer.ObserveField("state", "OnVideoPlayerStateChange")
     m.videoPlayer.ObserveField("visible", "OnVideoVisibleChange")
-
 end sub
 
 sub OnVideoPlayerStateChange() ' invoked when video state is changed
