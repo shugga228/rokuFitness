@@ -16,8 +16,10 @@ sub OnGridScreenItemSelected(event as Object) ' invoked when GridScreen item is 
 
     min = title.text.Right(5).Left(2).ToInt()
 
+    sec = 3 'min.ToInt() * 60 for actual use 
+
     timer.control = "start"
-    timer.duration = "3"
+    timer.duration = sec.ToStr()
     timer.repeat = false
     timer.ObserveField("fire", "addCal")
 
