@@ -10,6 +10,10 @@ sub Init()
     InitScreenStack()
     ShowGridScreen()
     RunContentTask() ' retrieving content
+    m.board = m.top.FindNode("keyboard")
+    m.submit = m.top.FindNode("submitButton")
+    m.submit.SetFocus(true)
+    m.submit.ObserveField("buttonSelected", "initMain")
 end sub
 
 ' The OnKeyEvent() function receives remote control key events
@@ -32,3 +36,27 @@ function OnkeyEvent(key as String, press as Boolean) as Boolean
     ' or false if it did not handle the event.
     return result
 end function
+
+function initMain()
+    
+    m.top.findNode("goalLabel").visible = "true"
+    m.top.findNode("weight").visible = "true"
+    m.top.findNode("counter").visible = "true"
+    m.top.findNode("ring").visible = "true"
+    m.top.findNode("overhang").visible = "true"
+    m.top.findNode("tos").visible = "false"
+    m.top.findNode("keyboard").visible = "false"
+    m.top.findNode("submitButton").visible = "false"
+    m.top.findNode("titleLabel").visible = "true"
+    m.top.findNode("descriptionLabel").visible = "true"
+    m.top.findNode("rowList").visible = "true"
+
+    m.submit = m.top.FindNode("submitButton")
+    m.submit.SetFocus(false)
+
+    m.GridScreen.SetFocus(true)
+    
+
+
+    
+end function 

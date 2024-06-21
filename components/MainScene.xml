@@ -14,6 +14,7 @@
             showClock="false"
             logoUri="pkg:/images/logo.png"
             translation="[0,20]"
+            visible="false"
         />
         <Label
             id="loadingIndicator"
@@ -28,12 +29,22 @@
         />
 
         
-        <Label id="goalLabel" text="Daily Calorie Goal: 1000" color="0xed412bff" visible="true" translation="[700,90]" font="font:MediumBoldSystemFont"/>
-        <Label id="weight" text="90 kg" visible="true" translation="[700,120]" font="font:MediumBoldSystemFont"/>
-        <Label id="counter" text="0" visible="true" translation="[1090,110]" horizAlign="center" vertAlign="center" font="font:MediumBoldSystemFont"/>
-        <Button id="ring" text=" " textColor="0xff0000ff" iconUri="pkg:/images/ring/0.png" focusedTextColor="0xff0000ff" width="40" height="40" translation="[1000, 93]" visible="true"/>
+        <Label id="goalLabel" text="Daily Calorie Goal: 1000" color="0xed412bff" visible="false" translation="[700,90]" font="font:MediumBoldSystemFont"/>
+        <Label id="weight" text="90 kg" visible="false" translation="[700,120]" font="font:MediumBoldSystemFont"/>
+        <Label id="counter" text="0" visible="false" translation="[1090,110]" horizAlign="center" vertAlign="center" font="font:MediumBoldSystemFont"/>
+        <Button id="ring" text=" " textColor="0xff0000ff" iconUri="pkg:/images/ring/0.png" focusedTextColor="0xff0000ff" width="40" height="40" translation="[1000, 93]" visible="false"/>
         <Timer id="testTimer" repeat="false" duration="3"/>
+
+
+
+        <Label id="info" text="" visible="false" translation="[0,0]" font="font:MediumBoldSystemFont"/>
+        <Label id="tos" text="Terms of Service: idk" visible="true" translation="[10,50]" font="font:MediumBoldSystemFont"/>
         
+        
+        <MiniKeyboard id = "keyboard" visible = "true" translation="[75,100]"/>
+        <Button id = "submitButton" text = "Submit" showFocusFootprint = "true" minWidth = "240" visible="true" translation="[120,575]"/>
+        
+
 
         
 
