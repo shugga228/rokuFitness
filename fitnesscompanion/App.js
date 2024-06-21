@@ -5,25 +5,42 @@ import {
   TouchableOpacity,
   Text,
   Image,
-  Alert,
 } from 'react-native';
-var IP = 10
+
+// Consider using a configuration file or environment variables for IP
+const DEFAULT_IP = '10'; // Placeholder for actual configuration
 
 const App = () => {
-  const [isButtonDisabled, setButtonDisabled] = useState(false);
-  const [buttonText, setButtonText] = useState("");
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+  const [buttonText, setButtonText] = useState('Connect');
 
   const handleConnect = async () => {
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", `http://${IP}:8060/keypress/` + "connect", true);
-    xhr.send();
-    setButtonDisabled(true)
-    setButtonText("connected")
+    setButtonText('connected');
+
+    try {
+      const ip = 
+        DEFAULT_IP;
+      const url = `http://${ip}:8060/keypress/connect`;
+
+      const response = await fetch(url, {
+        method: 'POST',
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to connect to device');
+      }
+
+      setIsButtonDisabled(true);
+      setButtonText('connected');
+    } catch (error) {
+      console.error('Error connecting:', error);
+      // Handle errors appropriately (e.g., display an error message)
+    }
   };
 
   return (
     <View style={styles.container}>
-      <Image source={require('../assets/images/rokulogo.png')} style={styles.image2} />
+      <Image source={require('./assets/rokulogo.png')} style={styles.image2} />
       <TouchableOpacity
         style={[styles.button, isButtonDisabled && styles.buttonDisabled]}
         onPress={handleConnect}
@@ -31,7 +48,7 @@ const App = () => {
       >
         <Text style={styles.buttonText}>{buttonText}</Text>
       </TouchableOpacity>
-      <Image source={require('../assets/images/companionapp.png')} style={styles.image} />
+      <Image source={require('./assets/companionapp.png')} style={styles.image} />
     </View>
   );
 };
