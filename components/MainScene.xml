@@ -32,7 +32,7 @@
         <Label id="weight" text="90 kg" visible="true" translation="[700,120]" font="font:MediumBoldSystemFont"/>
         <Label id="counter" text="0" visible="true" translation="[1090,110]" horizAlign="center" vertAlign="center" font="font:MediumBoldSystemFont"/>
         <Button id="ring" text=" " textColor="0xff0000ff" iconUri="pkg:/images/ring/0.png" focusedTextColor="0xff0000ff" width="40" height="40" translation="[1000, 93]" visible="true"/>
-        <Timer id="testTimer" repeat="true" duration="5"/>
+        <Timer id="testTimer" repeat="false" duration="3"/>
         
 
         

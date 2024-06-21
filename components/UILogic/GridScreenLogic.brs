@@ -42,6 +42,7 @@ function addCal()
     notification = m.top.FindNode("goalLabel")
     weight = m.top.FindNode("weight")
     des = m.top.FindNode("descriptionLabel")
+    timer = m.top.findNode("testTimer")
 
     
     weightInt = weight.text.Replace("kg", "").ToInt()
@@ -50,10 +51,10 @@ function addCal()
 
     ' Formula for calculating calories burned: METS X 3.5 X BW (KG) / 200 X MIN = KCAL
     index = des.text.Len() - des.text.Instr("|")
-    METS = des.text.Right(index - 1).Replace("METS", "").ToInt()
+    METS = des.text.Right(index - 1).Replace("METS", "").ToFloat()
     min = title.text.Right(5).Left(2).ToInt()
 
-    caloriesBurned = Fix((METS * 3.5 * weightInt / 200 * min) + caloriesBurned)
+    caloriesBurned = Fix((METS * 3.5 * weightInt / 200 * min)) + caloriesBurned
 
     barPercent = (caloriesBurned * 100) / calorieGoal
 
@@ -69,6 +70,8 @@ function addCal()
     
     ring.iconUri = "pkg:/images/ring/" + ringString + ".png"
 
-    count.text = caloriesBurned.ToStr()
+    count.text = caloriesBurned.ToStr() 
+    timer.duration = "0"
+    timer.control = "stop"
 
 end function
