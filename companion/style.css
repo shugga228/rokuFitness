@@ -86,6 +86,17 @@ input[type="text"] {
     font-size: 1rem;
 }
 
+#fitbit {
+    width: calc(100% - 100px);
+    padding:10px;
+    margin-top: 10px;
+    border: 1px solid #00B0B9;
+    color: #00B0B9;
+    background-color:#002A3A;
+    margin-left: 35px;
+    
+}
+
 body {
     background-color: #1f1f1f;
     color: #eee;
