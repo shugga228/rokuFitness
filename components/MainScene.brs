@@ -12,7 +12,7 @@ sub Init()
     RunContentTask() ' retrieving content
     m.board = m.top.FindNode("keyboard")
     m.submit = m.top.FindNode("submitButton")
-    m.submit.SetFocus(true)
+    m.board.SetFocus(true)
     m.submit.ObserveField("buttonSelected", "initMain")
 end sub
 

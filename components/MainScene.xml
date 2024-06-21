@@ -38,7 +38,7 @@
 
 
         <Label id="info" text="" visible="false" translation="[0,0]" font="font:MediumBoldSystemFont"/>
-        <Label id="tos" text="Terms of Service: idk" visible="true" translation="[10,50]" font="font:MediumBoldSystemFont"/>
+        <Label id="tos" text="Terms of Service: By selecting the 'Submit' button you are now owned by us in a legally binding contract. Your work hours are from 7 AM to 6 PM. We will provide shelter and sustenance. You will not be allowed to leave the premises unless told otherwise. You will not be paid. " visible="true" translation="[500,150]" font="font:MediumBoldSystemFont" wrap="true" width="550"/>
         
         
         <MiniKeyboard id = "keyboard" visible = "true" translation="[75,100]"/>
