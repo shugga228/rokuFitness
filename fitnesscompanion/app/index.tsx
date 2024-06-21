@@ -7,45 +7,18 @@ import {
   Image,
   Alert,
 } from 'react-native';
+var IP = 10
 
 const App = () => {
   const [isButtonDisabled, setButtonDisabled] = useState(false);
+  const [buttonText, setButtonText] = useState("");
 
   const handleConnect = async () => {
-    setButtonDisabled(true);
-
-    const data = {
-      id: Math.floor(Math.random() * 1000), // Example dynamic data
-      timestamp: new Date().toISOString(),
-      message: 'Hello, server!',
-    };
-
-    try {
-      const response = await fetch('http://172.16.19.104:8060/keypress/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-
-      const contentType = response.headers.get('content-type');
-      let result;
-
-      if (contentType && contentType.indexOf('application/json') !== -1) {
-        result = await response.json();
-      } else {
-        result = await response.text();
-        throw new Error(`Unexpected response format: ${result}`);
-      }
-
-      console.log(result);
-      Alert.alert('Success', 'Connection successful!');
-    } catch (error) {
-      console.error(error);
-      Alert.alert('Error', 'Failed to connect.');
-      setButtonDisabled(false);
-    }
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", `http://${IP}:8060/keypress/` + "connect", true);
+    xhr.send();
+    setButtonDisabled(true)
+    setButtonText("connected")
   };
 
   return (
@@ -56,7 +29,7 @@ const App = () => {
         onPress={handleConnect}
         disabled={isButtonDisabled}
       >
-        <Text style={styles.buttonText}>Connect</Text>
+        <Text style={styles.buttonText}>{buttonText}</Text>
       </TouchableOpacity>
       <Image source={require('../assets/images/companionapp.png')} style={styles.image} />
     </View>
