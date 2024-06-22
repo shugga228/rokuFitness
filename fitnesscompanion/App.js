@@ -7,8 +7,7 @@ import {
   Image,
 } from 'react-native';
 
-// Consider using a configuration file or environment variables for IP
-const DEFAULT_IP = '192.168.168.230'; // Placeholder for actual configuration
+const DEFAULT_IP = '172.20.10.5';
 
 const App = () => {
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
