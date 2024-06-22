@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component name="MainScene" extends="Scene">
+    <script type="text/brightscript" uri="MainScene.brs" />
+    <script type="text/brightscript" uri="UILogic/ScreenStackLogic.brs" />
+    <script type="text/brightscript" uri="UILogic/ContentTaskLogic.brs" />
+    <script type="text/brightscript" uri="UILogic/GridScreenLogic.brs" />
+    <script type="text/brightscript" uri="UILogic/VideoPlayerLogic.brs" />
+    <children>
+         
+         <Overhang
+            id="overhang"
+            showOptions="false"
+            showClock="false"
+            logoUri="pkg:/images/logo.png"
+            translation="[0,20]"
+            visible="false"
+        />
+        <Label
+            id="loadingIndicator"
+            text="Loading..."
+            width="1280"
+            height="720"
+            translation="[0, 0]"
+            horizAlign="center"
+            vertAlign="center"
+            visible="false"
+            font="font:MediumBoldSystemFont"
+        />
+
+        
+        <Label id="goalLabel" text="Daily Calorie Goal: 1000" color="0xed412bff" visible="false" translation="[700,90]" font="font:MediumBoldSystemFont"/>
+        <Label id="weight" text="90 kg" visible="false" translation="[700,120]" font="font:MediumBoldSystemFont"/>
+        <Label id="counter" text="0" visible="false" translation="[1090,110]" horizAlign="center" vertAlign="center" font="font:MediumBoldSystemFont"/>
+        <Button id="ring" text=" " textColor="0xff0000ff" iconUri="pkg:/images/ring/0.png" focusedTextColor="0xff0000ff" width="40" height="40" translation="[1000, 93]" visible="false"/>
+        <Timer id="testTimer" repeat="false" duration="3"/>
+
+
+
+        <Label id="info" text="" visible="false" translation="[0,0]" font="font:MediumBoldSystemFont"/>
+        <Label id="tos" text="Terms of Service: By selecting the 'Submit' button you are now owned by us in a legally binding contract. Your work hours are from 7 AM to 6 PM. We will provide shelter and sustenance. You will not be allowed to leave the premises unless told otherwise. You will not be paid. " visible="true" translation="[500,150]" font="font:MediumBoldSystemFont" wrap="true" width="550"/>
+        
+        
+        <MiniKeyboard id = "keyboard" visible = "true" translation="[75,100]"/>
+        <Button id = "submitButton" text = "Submit" showFocusFootprint = "true" minWidth = "240" visible="true" translation="[120,575]"/>
+        
+
+
+        
+
+    </children>
+</component>
+
