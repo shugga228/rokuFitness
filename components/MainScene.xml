@@ -12,9 +12,10 @@
             id="overhang"
             showOptions="false"
             showClock="false"
-            logoUri="pkg:/images/logo.png"
+            logoUri="pkg:/images/logo.jpg"
             translation="[0,20]"
             visible="false"
+            width="400"
         />
         <Label
             id="loadingIndicator"
