@@ -16,6 +16,7 @@
       "bundleIdentifier": "com.abushagur.fitnesscompanion"
     },
     "android": {
+      "minSdkVersion": 26,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
@@ -27,7 +28,15 @@
     },
     "plugins": [
       "react-native-health",
-      "react-native-health-connect"
+      "react-native-health-connect",
+      [
+        "expo-build-properties",
+        {
+         "android": {
+            "minSdkVersion": 26
+          }
+        }
+    ]
     ],
     "extra": {
       "eas": {
