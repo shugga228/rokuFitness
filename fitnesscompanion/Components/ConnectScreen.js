@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {Button, Image, View, TouchableOpacity, Text} from 'react-native';
 import { styles } from "./Style.js";
+import { APIInit } from './HealthAPI.js';
 
 const DEFAULT_IP = '172.20.10.5';
 
@@ -14,6 +15,7 @@ export const ConnectScreen = () => {
         xhr.open("POST", `http://${IP}:8060/keypress/` + 'select', true);
         xhr.send();
         setButtonText('Connected');
+        APIInit()
     };
 
     return (
