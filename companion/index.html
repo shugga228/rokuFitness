@@ -6,7 +6,7 @@
     <title>roku fitness app companion</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <script>
-        let IP = "nothing :("; // ip address of roku
+        let IP = ""; // ip address of roku
 
         function sendCommand(command) {
             var xhr = new XMLHttpRequest();
@@ -34,17 +34,41 @@
             sendCharacter(0);
         }
 
+        function testButtonAction() {
+            const textInput = document.getElementById("text-input");
+            const dummyData = "80 kg 1.9 m 400 cals  ";
+
+            textInput.value = dummyData;
+
+            setTimeout(() => {
+                sendTextInput(dummyData);
+                textInput.value = ""; 
+
+                setTimeout(() => {
+                    for (let i = 0; i < 8; i++) {
+                        setTimeout(() => {
+                            sendCommand('Down');
+                        }, i * 200); 
+                    }
+
+                    setTimeout(() => {
+                        sendCommand('Select'); 
+                    }, 8 * 200);
+                }, 1000); 
+            }, 1000); 
+        }
+
         document.addEventListener("DOMContentLoaded", (event) => {
             const ipLabel = document.getElementById("ip-label");
             const ipInput = document.getElementById("ip-input");
 
             // connect to IP
-            ipLabel.textContent = `connected to: ${IP}`;
+            ipLabel.textContent = `Connected to: ${IP}`;
 
             // IP address input handling
             ipInput.addEventListener("change", () => {
                 IP = ipInput.value.trim(); // Update IP address
-                ipLabel.textContent = `connected to: ${IP}`; // Update label
+                ipLabel.textContent = `Connected to: ${IP}`; // Update label
             });
 
             // text input handling
@@ -56,28 +80,31 @@
                     event.preventDefault(); 
                 }
             });
+
+            // test button handling
+            document.getElementById("test-button").addEventListener("click", testButtonAction);
         });
     </script>
 
 </head>
 <body>
     <div id="remote-container">
-        <h3>roku fitness app companion</h3>
+        <img src="logoreal.png" alt="Roku Fitness Companion">
         <div id="ip-container">
             <span id="ip-label">connected to: not connected</span>
-            <input type="text" id="ip-input" placeholder="enter IP address" />
+            <input type="text" id="ip-input" placeholder="Enter IP address" />
         </div>
         <div>
-            <span id="ip-label">input stats</span>
-            <input type="text" id="text-input" placeholder="enter text manually" />
+            <span id="ip-label">Input Stats</span>
+            <input type="text" id="text-input" placeholder="Enter Text" />
         </div>
         
-        <button id="fitbit" onclick="window.location.href = 'https://www.fitbit.com/oauth2/authorize?client_id=23PF2W&response_type=code&scope=activity+heartrate+location+nutrition+oxygen_saturation+profile+respiratory_rate+settings+sleep+social+temperature+weight&state&code_challenge=-4cf-Mzo_qg9-uq0F4QwWhRh4AjcAqNx7SbYVsdmyQM&code_challenge_method=S256';">connect to fitbit</button>   
-    <div class="button-row">
-        
-        <button onclick="sendCommand('Select')">OK</button>
+        <button id="fitbit" onclick="window.location.href = 'https://www.fitbit.com/oauth2/authorize?client_id=23PF2W&response_type=code&scope=activity+heartrate+location+nutrition+oxygen_saturation+profile+respiratory_rate+settings+sleep+social+temperature+weight&state&code_challenge=-4cf-Mzo_qg9-uq0F4QwWhRh4AjcAqNx7SbYVsdmyQM&code_challenge_method=S256';">Connect to Fitbit</button>   
+        <button id="test-button">Demo</button>
+        <div class="button-row">
+            <button onclick="sendCommand('Select')">OK</button>
+        </div>
+        <span id="debug-label">(For debugging)</span>
     </div>
-    </div>
-
 </body>
 </html>
