@@ -19,10 +19,20 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.abushagur.fitnesscompanion"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "react-native-health",
+      "react-native-health-connect"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "1bfc6dfc-ca10-4b4f-9dee-2d9c4fa3fb1e"
+      }
     }
   }
 }
