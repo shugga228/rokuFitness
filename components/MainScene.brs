@@ -31,6 +31,14 @@ function OnkeyEvent(key as String, press as Boolean) as Boolean
                 timer.control = "stop"
             end if
         end if
+        if key = "down" and not m.submit.hasFocus() and m.submit.visible
+            m.submit.setFocus(true)
+            result = true
+        
+        else if key = "up" and not m.board.hasFocus() and m.board.visible
+            m.board.setFocus(true)
+            result = true
+        end if 
     end if
     ' The OnKeyEvent() function must return true if the component handled the event,
     ' or false if it did not handle the event.
@@ -38,6 +46,10 @@ function OnkeyEvent(key as String, press as Boolean) as Boolean
 end function
 
 function initMain()
+    'for debugging
+    m.top.findNode("info").visible = "true"
+    input = m.board.text
+    m.top.findNode("info").text = input.ToStr()
     
     m.top.findNode("goalLabel").visible = "true"
     m.top.findNode("weight").visible = "true"
@@ -47,14 +59,13 @@ function initMain()
     m.top.findNode("tos").visible = "false"
     m.top.findNode("keyboard").visible = "false"
     m.top.findNode("submitButton").visible = "false"
-    m.top.findNode("titleLabel").visible = "true"
-    m.top.findNode("descriptionLabel").visible = "true"
-    m.top.findNode("rowList").visible = "true"
 
     m.submit = m.top.FindNode("submitButton")
     m.submit.SetFocus(false)
+    m.board = m.top.FindNode("keyboard")
+    m.board.SetFocus(false)
 
-    m.GridScreen.SetFocus(true)
+    OnMainContentLoaded2()
     
 
 
