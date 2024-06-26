@@ -1,15 +1,15 @@
 ' entry point of  MainScene
 sub Init()
     ' set background color for scene. Applied only if backgroundUri has empty value
-    m.top.backgroundColor = "0x4a2b6b"
-    m.top.backgroundUri= "pkg:/images/ground.png"
+    m.top.backgroundColor = "0x000000ff"
+    m.top.backgroundUri= "pkg:/images/background.jpeg"
 
     ' add back if you want to use specific background image
     ' m.top.backgroundUri= "pkg:/images/background.png"
     m.loadingIndicator = m.top.FindNode("loadingIndicator") ' store loadingIndicator node to m
     InitScreenStack()
-    ShowGridScreen()
-    RunContentTask() ' retrieving content
+    'ShowGridScreen()
+    'RunContentTask() ' retrieving content
     m.board = m.top.FindNode("keyboard")
     m.submit = m.top.FindNode("submitButton")
     m.board.SetFocus(true)
@@ -48,6 +48,7 @@ end function
 function initMain()
 
     input = m.board.text
+    m.top.findNode("logoBack").visible = "true"
     '80kg 1.9m 400cal format digits dont matter
     height = Right(Left(input.ToStr(), Instr(1, input.ToStr(), "m") - 1), Instr(1, input.ToStr(), "kg"))
     weight = Left(input.ToStr(), Instr(1, input.ToStr(), "kg") - 1)
@@ -108,9 +109,32 @@ function initMain()
     m.board = m.top.FindNode("keyboard")
     m.board.SetFocus(false)
 
+    ShowGridScreen()
+    RunContentTask()
     OnMainContentLoaded2()
-    
-
-
+   ' background()
     
 end function 
+
+function background()
+
+    backTimer = m.top.FindNode("backgroundTimer")
+    backTimer.control = "start"
+    m.count = 0
+    m.top.backgroundUri= "pkg:/images/background/" + m.count.ToStr() + ".png"
+    backTimer.ObserveField("fire", "gif")
+
+end function 
+
+function gif()
+
+    m.count = m.count + 1 
+
+    if m.count > 14 then
+        m.top.FindNode("backgroundTimer").control = "stop"
+        background()
+    else 
+
+    m.top.backgroundUri= "pkg:/images/background/" + m.count.ToStr() + ".png"
+    end if 
+end function

@@ -7,15 +7,15 @@ sub RunContentTask()
 end sub
 
 sub OnMainContentLoaded() ' invoked when content is ready to be used
-    'm.GridScreen.SetFocus(true) ' set focus to GridScreen
+    m.GridScreen.SetFocus(true) ' set focus to GridScreen
     m.loadingIndicator.visible = false ' hide loading indicator because content was retrieved
     m.GridScreen.content = m.contentTask.content ' populate GridScreen with content
 end sub
 
 sub OnMainContentLoaded2()
-    m.GridScreen.SetFocus(true)
+    'm.GridScreen.SetFocus(true)
     m.loadingIndicator.visible = false ' hide loading indicator because content was retrieved
-    m.GridScreen.content = m.contentTask.content
+    'm.GridScreen.content = m.contentTask.content
     m.top.findNode("titleLabel").visible = "true"
     m.top.findNode("descriptionLabel").visible = "true"
     m.top.findNode("rowList").visible = "true"
