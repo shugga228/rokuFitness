@@ -48,71 +48,80 @@ end function
 function initMain()
 
     input = m.board.text
-    m.top.findNode("logoBack").visible = "true"
-    '80kg 1.9m 400cal format digits dont matter
-    height = Right(Left(input.ToStr(), Instr(1, input.ToStr(), "m") - 1), Instr(1, input.ToStr(), "kg"))
-    weight = Left(input.ToStr(), Instr(1, input.ToStr(), "kg") - 1)
-    calInit = Right(input.ToStr(), Instr(1, input.ToStr(), "m") - 3).Replace("cal", "")
 
-    m.top.findNode("weight").text = weight.ToStr() + " kg"
-    m.top.findNode("height").text = height.ToStr() + " m"
-
-    bmi = weight.ToFloat() / (height.ToFloat() * height.ToFloat())
-
-
-    if bmi < 18.5 then 
-        calGoal = 1500
-    else if 18.5 <= bmi and bmi < 24.9 then 
-        calGoal = 2000
-    else if 25 <= bmi and bmi < 29.9 then 
-        calGoal = 2500
-    else if 30 <= bmi and bmi < 34.9 then 
-        calGoal = 3000
-    else if 35 <= bmi and bmi < 39.9 then 
-        calGoal = 3500
-    else 
-        calGoal = 4000
-    end if 
-
-    m.top.findNode("counter").text = calInit.toStr()
-
-    barPercent = (calInit.ToInt() * 100) / calGoal
-
-    barPercent = Fix(barPercent)
-
-   if barPercent >= 100 then
-        ringString = "100"
-        notification.color = "0x77eb34ff"
+    if Instr(1, input.ToStr(), "kg") < 1 or Instr(1, input.ToStr(), "m") < 1 or Instr(1, input.ToStr(), "cal") < 1 then
+        m.board.text = ""
     else
-      ringString = barPercent.ToStr()
+
+        
+        '80kg 1.9m 400cal format digits dont matter
+        height = Right(Left(input.ToStr(), Instr(1, input.ToStr(), "m") - 1), Instr(1, input.ToStr(), "kg"))
+        weight = Left(input.ToStr(), Instr(1, input.ToStr(), "kg") - 1)
+        calInit = Right(input.ToStr(), Instr(1, input.ToStr(), "m") - 3).Replace("cal", "")
+
+        m.top.findNode("weight").text = weight.ToStr() + " kg"
+        m.top.findNode("height").text = height.ToStr() + " m"
+
+        bmi = weight.ToFloat() / (height.ToFloat() * height.ToFloat())
+
+
+        if bmi < 18.5 then 
+            calGoal = 1500
+        else if 18.5 <= bmi and bmi < 24.9 then 
+            calGoal = 2000
+        else if 25 <= bmi and bmi < 29.9 then 
+            calGoal = 2500
+        else if 30 <= bmi and bmi < 34.9 then 
+            calGoal = 3000
+        else if 35 <= bmi and bmi < 39.9 then 
+            calGoal = 3500
+        else 
+            calGoal = 4000
+        end if 
+
+        m.top.findNode("counter").text = calInit.toStr()
+
+        barPercent = (calInit.ToInt() * 100) / calGoal
+
+        barPercent = Fix(barPercent)
+
+    if barPercent >= 100 then
+            ringString = "100"
+            notification.color = "0x77eb34ff"
+        else
+        ringString = barPercent.ToStr()
+        end if
+
+        
+        m.top.findNode("ring").iconUri = "pkg:/images/ring/" + ringString + ".png"
+        m.top.findNode("goalLabel").text = "Daily Calorie Goal: " + calGoal.ToStr()
+
+        
+        m.top.findNode("info").text = input.ToStr()
+        
+        m.top.findNode("goalLabel").visible = "true"
+        m.top.findNode("weight").visible = "true"
+        m.top.findNode("height").visible = "true"
+        m.top.findNode("counter").visible = "true"
+        m.top.findNode("ring").visible = "true"
+        m.top.findNode("overhang").visible = "true"
+        m.top.findNode("tos").visible = "false"
+        m.top.findNode("tos2").visible = "false"
+        m.top.findNode("tosLogo").visible = "false"
+        m.top.findNode("keyboard").visible = "false"
+        m.top.findNode("submitButton").visible = "false"
+        m.top.findNode("logoBack").visible = "true"
+
+        m.submit = m.top.FindNode("submitButton")
+        m.submit.SetFocus(false)
+        m.board = m.top.FindNode("keyboard")
+        m.board.SetFocus(false)
+
+        ShowGridScreen()
+        RunContentTask()
+        OnMainContentLoaded2()
+    ' background()
     end if
-
-    
-    m.top.findNode("ring").iconUri = "pkg:/images/ring/" + ringString + ".png"
-    m.top.findNode("goalLabel").text = "Daily Calorie Goal: " + calGoal.ToStr()
-
-    
-    m.top.findNode("info").text = input.ToStr()
-    
-    m.top.findNode("goalLabel").visible = "true"
-    m.top.findNode("weight").visible = "true"
-    m.top.findNode("height").visible = "true"
-    m.top.findNode("counter").visible = "true"
-    m.top.findNode("ring").visible = "true"
-    m.top.findNode("overhang").visible = "true"
-    m.top.findNode("tos").visible = "false"
-    m.top.findNode("keyboard").visible = "false"
-    m.top.findNode("submitButton").visible = "false"
-
-    m.submit = m.top.FindNode("submitButton")
-    m.submit.SetFocus(false)
-    m.board = m.top.FindNode("keyboard")
-    m.board.SetFocus(false)
-
-    ShowGridScreen()
-    RunContentTask()
-    OnMainContentLoaded2()
-   ' background()
     
 end function 
 
