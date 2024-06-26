@@ -120,7 +120,7 @@ function initMain()
         ShowGridScreen()
         RunContentTask()
         OnMainContentLoaded2()
-    ' background()
+        background()
     end if
     
 end function 
@@ -139,7 +139,7 @@ function gif()
 
     m.count = m.count + 1 
 
-    if m.count > 14 then
+    if m.count > 7 then
         m.top.FindNode("backgroundTimer").control = "stop"
         background()
     else 
