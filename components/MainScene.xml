@@ -7,13 +7,13 @@
     <script type="text/brightscript" uri="UILogic/GridScreenLogic.brs" />
     <script type="text/brightscript" uri="UILogic/VideoPlayerLogic.brs" />
     <children>
-         <Button id="logoBack" text="" textColor="0xff0000ff" iconUri="pkg:/images/miniBack.png" focusedTextColor="0xff0000ff" translation="[-190, 15]" visible="false"/>
+         <Button id="logoBack" text="" textColor="0xff0000ff" iconUri="pkg:/images/miniBack.png" focusedTextColor="0xff0000ff" translation="[-245, -35]" visible="false"/>
          <Overhang
             id="overhang"
             showOptions="false"
             showClock="false"
             logoUri="pkg:/images/old.jpg"
-            translation="[0,-5]"
+            translation="[-50,-43]"
             visible="false"
         />
         <Label
@@ -29,14 +29,14 @@
         />
 
         
-        <Label id="goalLabel" text="Daily Calorie Goal: 1000" color="0xed412bff" visible="false" translation="[700,90]" font="font:MediumBoldSystemFont"/>
+        <Label id="goalLabel" text="Daily Calorie Goal" color="0xed412bff" visible="false" translation="[700,90]" font="font:MediumBoldSystemFont"/>
         <Label id="weight" text="90 kg" visible="false" translation="[700,120]" font="font:MediumBoldSystemFont"/>
         <Label id="height" text="2.3 m" visible="false" translation="[700,150]" font="font:MediumBoldSystemFont"/>
-        <Label id="counter" text="0" visible="false" translation="[1090,110]" horizAlign="center" vertAlign="center" font="font:MediumBoldSystemFont"/>
-        <Button id="ring" text=" " textColor="0xff0000ff" iconUri="pkg:/images/ring/0.png" focusedTextColor="0xff0000ff" width="40" height="40" translation="[1000, 93]" visible="false"/>
+        <Label id="counter" text="0" visible="false" translation="[1090,127]" horizAlign="center" vertAlign="center" font="font:MediumBoldSystemFont"/>
+        <Button id="ring" text="" textColor="0xff0000ff" iconUri="pkg:/images/ring/0.png" focusedTextColor="0xff0000ff" width="40" height="40" translation="[1000, 110]" visible="false"/>
         <Poster id="tosLogo" uri="pkg:/images/tosLogo.png" translation="[500, 100]" width="700" height="588" visible="true"/>
         <Timer id="testTimer" repeat="false" duration="3"/>
-        <Timer id="backgroundTimer" repeat="true" duration="2.3"/>
+        <Timer id="backgroundTimer" repeat="true" duration="1"/>
         
 
 

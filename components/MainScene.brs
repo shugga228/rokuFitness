@@ -129,21 +129,18 @@ function background()
 
     backTimer = m.top.FindNode("backgroundTimer")
     backTimer.control = "start"
-    m.count = 0
-    m.top.backgroundUri= "pkg:/images/background/" + m.count.ToStr() + ".png"
+    m.frame = 0
     backTimer.ObserveField("fire", "gif")
 
 end function 
 
 function gif()
 
-    m.count = m.count + 1 
-
-    if m.count > 7 then
-        m.top.FindNode("backgroundTimer").control = "stop"
-        background()
-    else 
-
-    m.top.backgroundUri= "pkg:/images/background/" + m.count.ToStr() + ".png"
-    end if 
+    
+    m.frame = m.frame + 1 
+    m.top.backgroundUri= "pkg:/images/background/" + m.frame.ToStr() + ".png"
+    if m.frame > 7 then
+        m.frame = 0 
+    end if
+    
 end function
