@@ -3,11 +3,13 @@ import {Button, Image, View, TouchableOpacity, Text} from 'react-native';
 import { styles } from "./Style.js";
 import { APIInit } from './HealthAPI.js';
 import { AppContext } from './AppContext';
+import { useNavigation } from '@react-navigation/native';
 
 export const ConnectScreen = () => {
     const [isButtonDisabled, setIsButtonDisabled] = useState(false);
     const [buttonText, setButtonText] = useState('Connect');
     const { defaultIP } = useContext(AppContext);
+    const navigation = useNavigation();
 
     const handleConnect = async () => {
         var xhr = new XMLHttpRequest();
@@ -16,7 +18,8 @@ export const ConnectScreen = () => {
         xhr.open("POST", `http://${IP}:8060/keypress/` + 'select', true);
         xhr.send();
         setButtonText('Connected');
-        APIInit()
+        navigation.navigate('Logs')
+        //APIInit()
     };
 
     return (
