@@ -3,12 +3,14 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { HomeScreen } from "./HomeScreen";
+import { AppProvider } from './AppContext';
 
 const Stack = createStackNavigator();
 
 export const StartApp = () => {
     return (
-        <SafeAreaProvider forceInset={{ bottom: 0 }}>
+        <AppProvider>
+             <SafeAreaProvider forceInset={{ bottom: 0 }}>
                 <NavigationContainer theme={theme} >
                     <Stack.Navigator initialRouteName="Home">
                         <Stack.Screen
@@ -19,6 +21,7 @@ export const StartApp = () => {
                     </Stack.Navigator>
                 </NavigationContainer>
             </SafeAreaProvider>
+        </AppProvider>
     );
 }
 const theme = {

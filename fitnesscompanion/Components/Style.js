@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: 'black',
+      backgroundColor: 'rgb(15, 15, 15)',
       justifyContent: 'space-around',
       alignItems: 'center',
     },
@@ -24,6 +24,10 @@ export const styles = StyleSheet.create({
       color: 'black',
       fontSize: 60,
     },
+    text: {
+      color: 'white',
+      fontSize: 35,
+    },
     image: {
       width: '80%', // Adjust the width as per your requirement
       height: '20%', // Adjust the height as per your requirement
@@ -35,5 +39,22 @@ export const styles = StyleSheet.create({
       margin: 20,
       borderRadius: 20,
     },
+    label: {
+      fontSize: 24,
+      marginBottom: 10,
+      color: "white"
+    },
+    textInput: {
+      width: '85%',
+      borderColor: 'white',
+      borderWidth: 1,
+      fontSize: 24,
+      color: 'white',
+      backgroundColor: 'rgb(60, 60, 60)',
+      borderBottomLeftRadius: 10,
+      borderBottomRightRadius: 10,
+      borderTopLeftRadius: 10,
+      borderTopRightRadius: 10,
+  },
   });
   
