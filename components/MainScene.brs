@@ -100,6 +100,7 @@ function initMain()
         m.top.findNode("info").text = input.ToStr()
         
         m.top.findNode("goalLabel").visible = "true"
+        m.top.findNode("infoPanel").visible = "true"
         m.top.findNode("weight").visible = "true"
         m.top.findNode("height").visible = "true"
         m.top.findNode("counter").visible = "true"
