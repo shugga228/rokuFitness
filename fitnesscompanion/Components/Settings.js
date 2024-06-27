@@ -20,7 +20,7 @@ export const SettingsScreen = () => {
                 style={styles.textInput}
                 value={inputValue}
                 onChangeText={setInputValue}
-                placeholder="Enter the rokus IP"
+                placeholder="Enter the Roku's IP"
             />
             <Button
                 title="Save"
