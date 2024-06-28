@@ -37,7 +37,7 @@
         <Button id="ring" text="" textColor="0xff0000ff" iconUri="pkg:/images/ring/0.png" focusedTextColor="0xff0000ff" width="40" height="40" translation="[1020, 100]" visible="false"/>
         <Poster id="tosLogo" uri="pkg:/images/tosLogo.png" translation="[500, 100]" width="700" height="588" visible="true"/>
         <Timer id="testTimer" repeat="false" duration="3"/>
-        <Timer id="backgroundTimer" repeat="true" duration="1"/>
+        <Timer id="backgroundTimer" repeat="true" duration="0.6"/>
         
 
 
