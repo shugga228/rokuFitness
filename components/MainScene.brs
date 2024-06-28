@@ -14,6 +14,7 @@ sub Init()
     m.submit = m.top.FindNode("submitButton")
     m.board.SetFocus(true)
     m.submit.ObserveField("buttonSelected", "initMain")
+    m.goalString = ""
 end sub
 
 ' The OnKeyEvent() function receives remote control key events
@@ -137,11 +138,15 @@ end function
 
 function gif()
 
+    'goalString = ""
     
     m.frame = m.frame + 1 
-    m.top.backgroundUri= "pkg:/images/background/" + m.frame.ToStr() + ".png"
+    m.top.backgroundUri= "pkg:/images/background" + m.goalString + "/" + m.frame.ToStr() + ".png"
     if m.frame > 7 then
         m.frame = 0 
     end if
+    
+     'color = m.top.FindNode("goalLabel").color 
+     'if color = "0x77eb34ff" then 
     
 end function

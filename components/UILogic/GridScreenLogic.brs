@@ -63,6 +63,8 @@ function addCal()
    if barPercent >= 100 then
         ringString = "100"
         notification.color = "0x77eb34ff"
+        m.goalString = "Two"
+        m.top.FindNode("infoPanel").uri = "pkg:/images/infoPanel2.png"
     else
       ringString = barPercent.ToStr()
     end if
