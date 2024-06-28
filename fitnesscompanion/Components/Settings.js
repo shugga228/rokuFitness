@@ -13,7 +13,7 @@ export const SettingsScreen = () => {
         setDefaultIP(inputValue);
     };
     const handleHealthSave = () => {
-        setDefaultHealth(inputValue);
+        setDefaultHealth(healthValue);
     };
     const setDemo = () => {
         setHealthValue('80kg 1.9m 400cal')

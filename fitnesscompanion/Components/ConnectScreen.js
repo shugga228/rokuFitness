@@ -10,14 +10,36 @@ export const ConnectScreen = () => {
     const [buttonText, setButtonText] = useState('Connect');
     const { defaultIP } = useContext(AppContext);
     const { defaultHealth } = useContext(AppContext);
+    
+    function sendCommand(command) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", `http://${defaultIP}:8060/keypress/` + command, true);
+        xhr.send();
+    }
+
+    function sendTextInput(text) {
+        let characters = text.split('');
+
+        // adds delay
+        function sendCharacter(index) {
+            if (index < characters.length) {
+                let char = characters[index];
+                let encodedChar = encodeURIComponent(char);
+                sendCommand(`Lit_${encodedChar}`);
+
+                setTimeout(() => {
+                    sendCharacter(index + 1);
+                }, 100); 
+            }
+        }
+
+        // starting with index 0
+        sendCharacter(0);
+    }
 
     const handleConnect = async () => {
         console.log(defaultHealth);
-        var xhr = new XMLHttpRequest();
-        let IP = defaultIP;
-        console.log(IP);
-        xhr.open("POST", `http://${IP}:8060/keypress/` + 'select', true);
-        xhr.send();
+        sendTextInput(defaultHealth);
         setButtonText('Connected');
         APIInit()
     };
