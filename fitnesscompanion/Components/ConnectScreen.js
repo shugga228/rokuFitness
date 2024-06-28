@@ -18,8 +18,7 @@ export const ConnectScreen = () => {
         xhr.open("POST", `http://${IP}:8060/keypress/` + 'select', true);
         xhr.send();
         setButtonText('Connected');
-        navigation.navigate('Logs')
-        //APIInit()
+        APIInit()
     };
 
     return (

@@ -8,6 +8,17 @@ export const styles = StyleSheet.create({
       justifyContent: 'space-around',
       alignItems: 'center',
     },
+    header: {
+      backgroundColor: 'rgb(30, 30, 30)',
+      alignItems: 'center',
+      height: 60,
+      justifyContent: 'space-between',
+      flexDirection: 'row',
+      borderBottomLeftRadius: 20,
+      borderBottomRightRadius: 20,
+      borderTopLeftRadius: 20,
+      borderTopRightRadius: 20,
+  },
     button: {
       backgroundColor: 'white',
       padding: 20,

@@ -1,7 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { Button, Image, View, TextInput, Text } from 'react-native';
 import { styles } from "./Style.js";
-import { AppContext } from './AppContext';
 import { Weight, Height, Calories } from './HealthAPI.js';
 
 export const LogScreen = () => {
