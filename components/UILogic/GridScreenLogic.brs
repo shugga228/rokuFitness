@@ -18,9 +18,9 @@ sub OnGridScreenItemSelected(event as Object) ' invoked when GridScreen item is 
 
     sec = 3 'min.ToInt() * 60 for actual use 
 
-    timer.control = "start"
     timer.duration = sec.ToStr()
-    timer.repeat = false
+    timer.repeat = "false"
+    timer.control = "start"
     timer.ObserveField("fire", "addCal")
 
 
@@ -71,7 +71,5 @@ function addCal()
     ring.iconUri = "pkg:/images/ring/" + ringString + ".png"
 
     count.text = caloriesBurned.ToStr() 
-    timer.duration = "0"
-    timer.control = "stop"
 
 end function
