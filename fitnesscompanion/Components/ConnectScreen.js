@@ -9,9 +9,10 @@ export const ConnectScreen = () => {
     const [isButtonDisabled, setIsButtonDisabled] = useState(false);
     const [buttonText, setButtonText] = useState('Connect');
     const { defaultIP } = useContext(AppContext);
-    const navigation = useNavigation();
+    const { defaultHealth } = useContext(AppContext);
 
     const handleConnect = async () => {
+        console.log(defaultHealth);
         var xhr = new XMLHttpRequest();
         let IP = defaultIP;
         console.log(IP);
