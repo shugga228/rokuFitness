@@ -1,5 +1,3 @@
-
-
 sub ShowGridScreen()
     m.GridScreen = CreateObject("roSGNode", "GridScreen")
     m.GridScreen.ObserveField("rowItemSelected", "OnGridScreenItemSelected")
@@ -13,15 +11,18 @@ sub OnGridScreenItemSelected(event as Object) ' invoked when GridScreen item is 
 
     title = m.top.FindNode("titleLabel")
     timer = m.top.findNode("testTimer")
+    m.top.FindNode("backgroundTimer").duration = "0.1"
 
     min = title.text.Right(5).Left(2).ToInt()
 
     sec = 3 'min.ToInt() * 60 for actual use 
 
+    'addCal()
+    
     timer.duration = sec.ToStr()
-    timer.repeat = "false"
-    timer.control = "start"
     timer.ObserveField("fire", "addCal")
+    timer.control = "start"
+    
 
 
     grid = event.GetRoSGNode()

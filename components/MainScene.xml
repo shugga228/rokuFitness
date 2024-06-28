@@ -29,15 +29,15 @@
         />
 
         
-        <Poster id="infoPanel" uri="pkg:/images/infoPanel.png" width="730" height="730" translation="[615, -247]" visible="false"/>
-        <Label id="goalLabel" text="Daily Calorie Goal" color="0xfee469ff" visible="false" translation="[745,90]" font="font:MediumBoldSystemFont"/>
-        <Label id="weight" text="90 kg" visible="false" translation="[745,120]" font="font:MediumBoldSystemFont"/>
-        <Label id="height" text="2.3 m" visible="false" translation="[845,120]" font="font:MediumBoldSystemFont"/>
-        <Label id="counter" color="0xfde368ff" text="0" visible="false" translation="[1110,117]" horizAlign="center" vertAlign="center" font="font:MediumBoldSystemFont"/>
-        <Button id="ring" text="" textColor="0xff0000ff" iconUri="pkg:/images/ring/0.png" focusedTextColor="0xff0000ff" width="40" height="40" translation="[1020, 100]" visible="false"/>
+        <Poster id="infoPanel" uri="pkg:/images/infoPanel.png" width="730" height="730" translation="[615, -257]" visible="false"/>
+        <Label id="goalLabel" text="Daily Calorie Goal" color="0xfee469ff" visible="false" translation="[745,80]" font="font:MediumBoldSystemFont"/>
+        <Label id="weight" text="90 kg" visible="false" translation="[745,110]" font="font:MediumBoldSystemFont"/>
+        <Label id="height" text="2.3 m" visible="false" translation="[845,110]" font="font:MediumBoldSystemFont"/>
+        <Label id="counter" color="0xfde368ff" text="0" visible="false" translation="[1113,104]" horizAlign="center" vertAlign="center" font="font:MediumBoldSystemFont"/>
+        <Button id="ring" text="" textColor="0xff0000ff" iconUri="pkg:/images/ring/0.png" focusedTextColor="0xff0000ff" width="40" height="40" translation="[1023, 87]" visible="false"/>
         <Poster id="tosLogo" uri="pkg:/images/tosLogo.png" translation="[500, 100]" width="700" height="588" visible="true"/>
         <Timer id="testTimer" repeat="false" duration="3"/>
-        <Timer id="backgroundTimer" repeat="true" duration="0.6"/>
+        <Timer id="backgroundTimer" repeat="true" duration="1"/>
         
 
 

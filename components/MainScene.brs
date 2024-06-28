@@ -30,6 +30,7 @@ function OnkeyEvent(key as String, press as Boolean) as Boolean
                 result = true
                 timer = m.top.findNode("testTimer")
                 timer.control = "stop"
+                m.top.FindNode("backgroundTimer").duration = "1"
             end if
         end if
         if key = "down" and not m.submit.hasFocus() and m.submit.visible
