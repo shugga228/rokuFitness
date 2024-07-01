@@ -7,6 +7,9 @@
     <script type="text/brightscript" uri="UILogic/GridScreenLogic.brs" />
     <script type="text/brightscript" uri="UILogic/VideoPlayerLogic.brs" />
     <children>
+
+
+         <Poster id = "introBack" uri="pkg:/images/splash_hd.jpg" translation="[0, 0]" width="1920" height="1080" visible="true"/>
          <Button id="logoBack" text="" textColor="0xff0000ff" iconUri="pkg:/images/miniBack.png" focusedTextColor="0xff0000ff" translation="[-245, -35]" visible="false"/>
          <Overhang
             id="overhang"
@@ -38,6 +41,7 @@
         <Poster id="tosLogo" uri="pkg:/images/tosLogo.png" translation="[500, 100]" width="700" height="588" visible="true"/>
         <Timer id="testTimer" repeat="false" duration="3"/>
         <Timer id="backgroundTimer" repeat="true" duration="1"/>
+        <Timer id="alertTimer" repeat="true" duration="1"/>
         
 
 
@@ -49,7 +53,10 @@
          
         <MiniKeyboard id = "keyboard" visible = "true" translation="[75,130]"/>
         <Button id = "submitButton" text = "Accept &amp; Continue " showFocusFootprint = "true" minWidth = "240" visible="true" translation="[100,605]"/>
-        
+        <Poster id = "goalBack" uri="pkg:/images/miniBack.png" translation="[50, 20]" width="580" height="180" visible="false"/>
+        <Label id="miniGoal" text="Watch 2 Cardio videos (0/2)" color="0xfee469ff" visible="false" translation="[70,60]" font="font:MediumBoldSystemFont"/>
+        <Label id="debug" text="debug" color="0xfee469ff" visible="true" translation="[40,0]" font="font:MediumBoldSystemFont"/>
+
 
 
         

@@ -1,8 +1,8 @@
 ' entry point of  MainScene
 sub Init()
     ' set background color for scene. Applied only if backgroundUri has empty value
-    m.top.backgroundColor = "0x000000ff"
     m.top.backgroundUri= "pkg:/images/background.jpeg"
+    m.top.backgroundColor = "0x000000ff"
 
     ' add back if you want to use specific background image
     ' m.top.backgroundUri= "pkg:/images/background.png"
@@ -31,6 +31,11 @@ function OnkeyEvent(key as String, press as Boolean) as Boolean
                 timer = m.top.findNode("testTimer")
                 timer.control = "stop"
                 m.top.FindNode("backgroundTimer").duration = "1"
+                m.top.FindNode("logoBack").visible = "true"
+                m.top.FindNode("overhang").visible = "true"
+                m.top.findNode("goalBack").visible = "false"
+                m.top.findNode("miniGoal").visible = "false"
+                m.top.FindNode("alertTimer").control = "stop"
             end if
         end if
         if key = "down" and not m.submit.hasFocus() and m.submit.visible
@@ -50,6 +55,7 @@ end function
 function initMain()
 
     input = m.board.text
+    m.top.findNode("introBack").visble = "false"
 
     if Instr(1, input.ToStr(), "kg") < 1 or Instr(1, input.ToStr(), "cm") < 1 or Instr(1, input.ToStr(), "cal") < 1 then
         m.board.text = ""

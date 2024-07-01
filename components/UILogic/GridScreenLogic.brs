@@ -9,6 +9,20 @@ end sub
 
 sub OnGridScreenItemSelected(event as Object) ' invoked when GridScreen item is selected
 
+    m.top.FindNode("logoBack").visible = "false"
+    m.top.FindNode("overhang").visible = "false"
+
+    flash = m.top.FindNode("alertTimer")
+
+    m.alertCount = 0 
+    flash.ObserveField("fire", "alert")
+    flash.control = "start"
+
+
+
+    m.top.findNode("goalBack").visible = "true"
+    m.top.findNode("miniGoal").visible = "true"
+    
     title = m.top.FindNode("titleLabel")
     timer = m.top.findNode("testTimer")
     m.top.FindNode("backgroundTimer").duration = "0.1"
@@ -74,5 +88,24 @@ function addCal()
     ring.iconUri = "pkg:/images/ring/" + ringString + ".png"
 
     count.text = caloriesBurned.ToStr() 
+
+end function
+
+function alert()
+
+    if m.alertCount MOD 2 = 1 then
+        m.top.FindNode("miniGoal").visible = "false"
+    else
+        m.top.FindNode("miniGoal").visible = "true"
+    end if
+
+    m.alertCount = (m.alertCount + 1) 
+    m.top.FindNode("debug").text = m.alertCount.ToStr()
+
+    if m.alertCount = 20 then
+        m.top.FindNode("alertTimer").control = "stop"
+        m.top.FindNode("miniGoal").visible = "true"
+        m.top.FindNode("debug").text = m.alertCount.ToStr()
+    end if 
 
 end function
