@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
       borderBottomRightRadius: 20,
       borderTopLeftRadius: 20,
       borderTopRightRadius: 20,
-  },
+    },
     button: {
       backgroundColor: 'white',
       padding: 20,
@@ -45,8 +45,8 @@ export const styles = StyleSheet.create({
       margin: 10,
     },
     image2: {
-      width: '60%', // Adjust the width as per your requirement
-      height: '25%', // Adjust the height as per your requirement
+      width: '100%', // Adjust the width as per your requirement
+      height: '15%', // Adjust the height as per your requirement
       margin: 20,
       borderRadius: 20,
     },
