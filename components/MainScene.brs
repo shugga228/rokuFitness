@@ -51,20 +51,20 @@ function initMain()
 
     input = m.board.text
 
-    if Instr(1, input.ToStr(), "kg") < 1 or Instr(1, input.ToStr(), "m") < 1 or Instr(1, input.ToStr(), "cal") < 1 then
+    if Instr(1, input.ToStr(), "kg") < 1 or Instr(1, input.ToStr(), "cm") < 1 or Instr(1, input.ToStr(), "cal") < 1 then
         m.board.text = ""
     else
 
         
-        '80kg 1.9m 400cal format digits dont matter
-        height = Right(Left(input.ToStr(), Instr(1, input.ToStr(), "m") - 1), Instr(1, input.ToStr(), "kg"))
+        '80kg 190cm 400cal format digits dont matter
+        height = Right(Left(input.ToStr(), Instr(1, input.ToStr(), "cm") - 1), Instr(1, input.ToStr(), "kg"))
         weight = Left(input.ToStr(), Instr(1, input.ToStr(), "kg") - 1)
-        calInit = Right(input.ToStr(), Instr(1, input.ToStr(), "m") - 3).Replace("cal", "")
+        calInit = Right(input.ToStr(), Instr(1, input.ToStr(), "cm") - 3).Replace("cal", "")
 
         m.top.findNode("weight").text = weight.ToStr() + " kg"
-        m.top.findNode("height").text = height.ToStr() + " m"
+        m.top.findNode("height").text = height.ToStr() + " cm"
 
-        bmi = weight.ToFloat() / (height.ToFloat() * height.ToFloat())
+        bmi = weight.ToFloat() / (height.ToFloat() / 100 * height.ToFloat() / 100)
 
 
         if bmi < 18.5 then 
@@ -138,16 +138,11 @@ function background()
 end function 
 
 function gif()
-
-    'goalString = ""
     
     m.frame = m.frame + 1 
     m.top.backgroundUri= "pkg:/images/background" + m.goalString + "/" + m.frame.ToStr() + ".png"
     if m.frame > 7 then
         m.frame = 0 
     end if
-    
-     'color = m.top.FindNode("goalLabel").color 
-     'if color = "0x77eb34ff" then 
     
 end function
