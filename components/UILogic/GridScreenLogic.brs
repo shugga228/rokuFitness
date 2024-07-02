@@ -21,7 +21,8 @@ sub OnGridScreenItemSelected(event as Object) ' invoked when GridScreen item is 
 
 
     m.top.findNode("goalBack").visible = "true"
-    m.top.findNode("miniGoal").visible = "true"
+    m.top.findNode("miniGoal1").visible = "true"
+    m.top.findNode("miniGoal2").visible = "true"
     
     title = m.top.FindNode("titleLabel")
     timer = m.top.findNode("testTimer")
@@ -46,6 +47,8 @@ sub OnGridScreenItemSelected(event as Object) ' invoked when GridScreen item is 
     rowContent = grid.content.GetChild(m.selectedIndex[0])
     itemIndex = m.selectedIndex[1]
     ShowVideoScreen(rowContent, itemIndex)
+
+    'checkGoal()
 
 end sub
 
@@ -88,24 +91,50 @@ function addCal()
     ring.iconUri = "pkg:/images/ring/" + ringString + ".png"
 
     count.text = caloriesBurned.ToStr() 
+    m.top.FindNode("testTimer").unobserveField("fire")
 
 end function
 
 function alert()
 
     if m.alertCount MOD 2 = 1 then
-        m.top.FindNode("miniGoal").visible = "false"
+        m.top.FindNode("miniGoal1").visible = "false"
+        m.top.FindNode("miniGoal2").visible = "false"
     else
-        m.top.FindNode("miniGoal").visible = "true"
+        m.top.FindNode("miniGoal1").visible = "true"
+        m.top.FindNode("miniGoal2").visible = "true"
     end if
 
     m.alertCount = (m.alertCount + 1) 
     m.top.FindNode("debug").text = m.alertCount.ToStr()
 
-    if m.alertCount = 20 then
+    if m.alertCount = 8 then
         m.top.FindNode("alertTimer").control = "stop"
-        m.top.FindNode("miniGoal").visible = "true"
+        m.top.FindNode("miniGoal1").visible = "true"
+        m.top.FindNode("miniGoal2").visible = "true"
         m.top.FindNode("debug").text = m.alertCount.ToStr()
     end if 
+
+end function
+
+function checkGoal()
+
+    ' Watch 2 Cardio videos | (0/2)
+    full = m.top.findNode("miniGoal1").text
+    leftSide = Left(full, Instr(1, full, "|"))
+    goalCount = Right(full, Len(full) - Instr(1, full, "|")).Replace("(","").Left(2)
+    goalLimit = Right(full, Len(full) - Instr(1, full, "|")).Replace(")","").Right(1)
+    ogTitle = m.top.findNode("titleLabel").text.Left(Instr(1, m.top.findNode("titleLabel").text, " "))
+    sameType = Instr(1, full, ogTitle)
+
+    'if goalCount.ToInt() < goalLimit.ToInt() 'and sameType.ToInt() > 0 then 
+        'temp = goalCount.ToInt() + 1 
+     '   goalCount = temp.ToStr()
+    '    m.top.findNode("miniGoal").text = leftSide.ToStr() + " (" + goalCount.ToStr() + "/" + goalLimit.ToStr() + ")"
+   ' end if 
+
+    'cum = sameType
+    m.top.findNode("goalLabel").text = ogTitle.ToStr()
+
 
 end function

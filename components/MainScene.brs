@@ -34,8 +34,11 @@ function OnkeyEvent(key as String, press as Boolean) as Boolean
                 m.top.FindNode("logoBack").visible = "true"
                 m.top.FindNode("overhang").visible = "true"
                 m.top.findNode("goalBack").visible = "false"
-                m.top.findNode("miniGoal").visible = "false"
+                m.top.findNode("miniGoal1").visible = "false"
+                m.top.findNode("miniGoal2").visible = "false"
                 m.top.FindNode("alertTimer").control = "stop"
+                m.top.FindNode("alertTimer").unobserveField("fire")
+                m.top.FindNode("testTimer").unobserveField("fire")
             end if
         end if
         if key = "down" and not m.submit.hasFocus() and m.submit.visible
