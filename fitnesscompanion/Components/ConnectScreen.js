@@ -10,8 +10,9 @@ export const ConnectScreen = () => {
     const [buttonText, setButtonText] = useState('Connect');
     const { defaultIP } = useContext(AppContext);
     const { defaultHealth } = useContext(AppContext);
-    
+
     function sendCommand(command) {
+        //Sends Roku one command e.g. connect or a letter
         var xhr = new XMLHttpRequest();
         xhr.open("POST", `http://${defaultIP}:8060/keypress/` + command, true);
         xhr.send();
@@ -38,6 +39,7 @@ export const ConnectScreen = () => {
     }
 
     const handleConnect = async () => {
+        //Handles button connect and sends to server information
         console.log(defaultHealth);
         sendTextInput(defaultHealth);
         setButtonText('Connected');

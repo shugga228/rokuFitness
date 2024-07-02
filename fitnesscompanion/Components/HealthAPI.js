@@ -40,6 +40,7 @@ export const APIInit = async () => {
             });
           });
       } else if (Platform.OS === 'android') {
+        //Initializes and asks for permissions
         await initialize();
         const grantedPermissions = await requestPermission([
             { accessType: 'read', recordType: 'ActiveCaloriesBurned' },
@@ -49,6 +50,7 @@ export const APIInit = async () => {
       }      
 };
 export const Calories = async () => {
+    //Starting at beginning of day
     const startTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0, 0);
     if (Platform.OS === "android") {
         const isInitialized = await initialize();
@@ -66,8 +68,10 @@ export const Calories = async () => {
 }
 export const Weight = async () => {
     if (Platform.OS === "android") {
+        //Checks if api is initialized on android
         const isInitialized = await initialize();
         if (isInitialized) {
+            //if so read record and return
             const result = await readRecord('Weight');
             return result;        
         }
@@ -75,10 +79,11 @@ export const Weight = async () => {
 }
 export const Height = async () => {
     if (Platform.OS === "android") {
+        //Returns Height
         const isInitialized = await initialize();
         if (isInitialized) {
             const result = await readRecord('Height');
-            return result;        
+            return result;
         }
     }
 }

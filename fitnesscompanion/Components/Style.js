@@ -40,13 +40,13 @@ export const styles = StyleSheet.create({
       fontSize: 35,
     },
     image: {
-      width: '80%', // Adjust the width as per your requirement
-      height: '20%', // Adjust the height as per your requirement
+      width: '80%',
+      height: '20%',
       margin: 10,
     },
     image2: {
-      width: '100%', // Adjust the width as per your requirement
-      height: '15%', // Adjust the height as per your requirement
+      width: '100%',
+      height: '15%',
       margin: 20,
       borderRadius: 20,
     },
