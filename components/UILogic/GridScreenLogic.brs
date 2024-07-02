@@ -32,7 +32,6 @@ sub OnGridScreenItemSelected(event as Object) ' invoked when GridScreen item is 
 
     sec = 3 'min.ToInt() * 60 for actual use 
 
-    'addCal()
     
     timer.duration = sec.ToStr()
     timer.ObserveField("fire", "addCal")
@@ -48,7 +47,8 @@ sub OnGridScreenItemSelected(event as Object) ' invoked when GridScreen item is 
     itemIndex = m.selectedIndex[1]
     ShowVideoScreen(rowContent, itemIndex)
 
-    'checkGoal()
+    'checkGoal("miniGoal1")
+    'checkGoal("miniGoal2")
 
 end sub
 
@@ -117,24 +117,19 @@ function alert()
 
 end function
 
-function checkGoal()
+function checkGoal(goal as String)
 
     ' Watch 2 Cardio videos | (0/2)
-    full = m.top.findNode("miniGoal1").text
+    full = m.top.findNode(goal).text
     leftSide = Left(full, Instr(1, full, "|"))
     goalCount = Right(full, Len(full) - Instr(1, full, "|")).Replace("(","").Left(2)
     goalLimit = Right(full, Len(full) - Instr(1, full, "|")).Replace(")","").Right(1)
-    ogTitle = m.top.findNode("titleLabel").text.Left(Instr(1, m.top.findNode("titleLabel").text, " "))
-    sameType = Instr(1, full, ogTitle)
+    ogTitle = m.top.findNode("titleLabel").text.Left(Instr(1, m.top.findNode("titleLabel").text, " ")).Replace(" ", "")
+    sameType = Instr(1, leftSide, ogTitle)
 
-    'if goalCount.ToInt() < goalLimit.ToInt() 'and sameType.ToInt() > 0 then 
-        'temp = goalCount.ToInt() + 1 
-     '   goalCount = temp.ToStr()
-    '    m.top.findNode("miniGoal").text = leftSide.ToStr() + " (" + goalCount.ToStr() + "/" + goalLimit.ToStr() + ")"
-   ' end if 
-
+  
     'cum = sameType
-    m.top.findNode("goalLabel").text = ogTitle.ToStr()
+    m.top.findNode(goal).text = full.ToStr()
 
 
 end function
