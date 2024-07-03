@@ -1,8 +1,8 @@
 ' entry point of  MainScene
 sub Init()
-    m.calorieGoal = 4000
+   ' m.calorieGoal = 4000
     ' set toggle to show goalAchieved scene once
-    m.goalAchievedShown = false
+   ' m.goalAchievedShown = false
     ' set background color for scene. Applied only if backgroundUri has empty value
     m.top.backgroundUri= "pkg:/images/background.jpeg"
     m.top.backgroundColor = "0x000000ff"
@@ -18,6 +18,7 @@ sub Init()
     m.board.SetFocus(true)
     m.submit.ObserveField("buttonSelected", "initMain")
     m.goalString = ""
+    loadBackgrounds()
 end sub
 
 ' The OnKeyEvent() function receives remote control key events
@@ -26,10 +27,10 @@ function OnkeyEvent(key as String, press as Boolean) as Boolean
 
 
      ' check today's calories
-     label = m.top.FindNode("counter")
-     caloriesBurned = label.text.ToInt()
+     'label = m.top.FindNode("counter")
+     'caloriesBurned = label.text.ToInt()
      ' 
-     barPercent = (caloriesBurned * 100) / m.calorieGoal
+     'barPercent = (caloriesBurned * 100) / m.calorieGoal
 
     if press
         ' handle "back" key press
@@ -42,15 +43,12 @@ function OnkeyEvent(key as String, press as Boolean) as Boolean
 
                 
                 ' if condition true, show goal achieved screen
-                if barPercent >= 100 and not m.goalAchievedShown
+                'if barPercent >= 100 and not m.goalAchievedShown
                     ' Create a new screen for goal achievement
-                    m.GoalAchievedScreen = CreateObject("roSGNode", "GoalAchievedScreen")
-                    ShowScreen(m.GoalAchievedScreen) ' Show the goal achieved screen
-                    m.goalAchievedShown = true ' Set the toggle variable to true
-                end if
-
-
-
+                    'm.GoalAchievedScreen = CreateObject("roSGNode", "GoalAchievedScreen")
+                    'ShowScreen(m.GoalAchievedScreen) ' Show the goal achieved screen
+                   ' m.goalAchievedShown = true ' Set the toggle variable to true
+                'end if
 
                 timer = m.top.findNode("testTimer")
                 timer.control = "stop"
@@ -114,7 +112,7 @@ function initMain()
             calGoal = 4000
         end if 
 
-        m.calorieGoal = calGoal
+        'm.calorieGoal = calGoal
         m.top.findNode("counter").text = calInit.toStr()
 
         barPercent = (calInit.ToInt() * 100) / calGoal
@@ -180,3 +178,20 @@ function gif()
     end if
     
 end function
+
+function loadBackgrounds()
+
+    
+    m.top.backgroundUri= "pkg:/images/background/1.png"
+    m.top.backgroundUri= "pkg:/images/background/2.png"
+    m.top.backgroundUri= "pkg:/images/background/3.png"
+    m.top.backgroundUri= "pkg:/images/background/4.png"
+    m.top.backgroundUri= "pkg:/images/background/5.png"
+    m.top.backgroundUri= "pkg:/images/background/6.png"
+    m.top.backgroundUri= "pkg:/images/background/7.png"
+    m.top.backgroundUri= "pkg:/images/background/8.png"
+
+    m.top.backgroundUri= "pkg:/images/background.jpeg"
+
+end function
+
