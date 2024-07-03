@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import {Button, Image, View, TouchableOpacity, Text} from 'react-native';
 import { styles } from "./Style.js";
-import { APIInit } from './HealthAPI.js';
+import { APIInit, Weight, Height, Calories } from './HealthAPI.js';
 import { AppContext } from './AppContext';
 import { useNavigation } from '@react-navigation/native';
 
@@ -9,7 +9,7 @@ export const ConnectScreen = () => {
     const [isButtonDisabled, setIsButtonDisabled] = useState(false);
     const [buttonText, setButtonText] = useState('Connect');
     const { defaultIP } = useContext(AppContext);
-    const { defaultHealth } = useContext(AppContext);
+    const { defaultHealth, setDefaultHealth } = useContext(AppContext);
 
     function sendCommand(command) {
         //Sends Roku one command e.g. connect or a letter
@@ -44,6 +44,7 @@ export const ConnectScreen = () => {
         sendTextInput(defaultHealth);
         setButtonText('Connected');
         APIInit()
+        setDefaultHealth(Weight()+'kg '+Height()+'m '+Calories()+'cal')
     };
 
     return (
