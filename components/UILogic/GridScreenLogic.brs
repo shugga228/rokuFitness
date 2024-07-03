@@ -5,8 +5,6 @@ sub ShowGridScreen()
     
 end sub
 
-
-
 sub OnGridScreenItemSelected(event as Object) ' invoked when GridScreen item is selected
 
     m.top.FindNode("logoBack").visible = "false"
@@ -17,7 +15,6 @@ sub OnGridScreenItemSelected(event as Object) ' invoked when GridScreen item is 
     m.alertCount = 0 
     flash.ObserveField("fire", "alert")
     flash.control = "start"
-
 
 
     m.top.findNode("goalBack").visible = "true"
@@ -122,14 +119,14 @@ function checkGoal(goal as String)
     ' Watch 2 Cardio videos | (0/2)
     full = m.top.findNode(goal).text
     leftSide = Left(full, Instr(1, full, "|"))
-    goalCount = Right(full, Len(full) - Instr(1, full, "|")).Replace("(","").Left(2)
-    goalLimit = Right(full, Len(full) - Instr(1, full, "|")).Replace(")","").Right(1)
-    ogTitle = m.top.findNode("titleLabel").text.Left(Instr(1, m.top.findNode("titleLabel").text, " ")).Replace(" ", "")
+    goalCount = (Right(full, Len(full) - Instr(1, full, "|")).Replace("(","").Left(2)).ToInt()
+    goalLimit = (Right(full, Len(full) - Instr(1, full, "|")).Replace(")","").Right(1)).ToInt()
+    ogTitle = m.top.findNode("titleLabel").text.Left(Instr(1, m.top.findNode("titleLabel").text, " "))
     sameType = Instr(1, leftSide, ogTitle)
+    test = (leftSide.ToStr() + "  " + ogTitle.ToStr() + " " + sameType.ToStr())
 
-  
-    'cum = sameType
-    m.top.findNode(goal).text = full.ToStr()
-
+    
+    
+    m.top.findNode(goal).text = Instr(1, leftSide, ogTitle).ToStr()
 
 end function
