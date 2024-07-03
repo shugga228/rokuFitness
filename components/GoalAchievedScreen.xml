@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="GoalAchievedScreen" extends="Group" >
+    <children>
+        <Rectangle id="background" width="1920" height="1080" color="0x000000" />
+        <Poster
+            id="backgroundImage"
+            uri="pkg:/images/backgroundImage1.png"
+            width="1920"
+            height="1080"
+            loadSync="true"
+        />
+        <Label 
+         id="congratulationsLabel"
+         text=" Congratulations! Goal Achieved!" 
+         translation="[0, 0]"
+         width="1280"
+         height="720"
+         horizAlign="center"
+         vertAlign="center"
+         color="0x000000"
+         />
+        
+        <!-- Add other UI elements as needed -->
+    </children>
+</component>
