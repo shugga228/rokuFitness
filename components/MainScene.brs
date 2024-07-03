@@ -18,7 +18,11 @@ sub Init()
     m.board.SetFocus(true)
     m.submit.ObserveField("buttonSelected", "initMain")
     m.goalString = ""
-    loadBackgrounds()
+
+
+    'loadBackgrounds()
+    genGoal()
+
 end sub
 
 ' The OnKeyEvent() function receives remote control key events
@@ -192,6 +196,27 @@ function loadBackgrounds()
     m.top.backgroundUri= "pkg:/images/background/8.png"
 
     m.top.backgroundUri= "pkg:/images/background.jpeg"
+
+end function
+
+function genGoal()
+
+    
+    goalList = CreateObject("roList")
+    goalList.Clear()
+    goalList.AddTail("Watch 2 Cardio videos | (0/2)")
+    goalList.AddTail("Watch 3 Sports videos | (0/3)")
+    goalList.AddTail("Watch 1 Conditioning video | (0/1)")
+
+    goal1 = Fix(Rnd(3)) - 1
+    goal2 = Fix(Rnd(3)) - 1
+
+    if goal1 = goal2 then
+        genGoal()
+    else
+        m.top.findNode("miniGoal1").text = goalList[goal1].ToStr()
+        m.top.findNode("miniGoal2").text = goalList[goal2].ToStr()
+    end if 
 
 end function
 
