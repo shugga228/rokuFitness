@@ -122,11 +122,14 @@ function checkGoal(goal as String)
     goalCount = (Right(full, Len(full) - Instr(1, full, "|")).Replace("(","").Left(2)).ToInt()
     goalLimit = (Right(full, Len(full) - Instr(1, full, "|")).Replace(")","").Right(1)).ToInt()
     ogTitle = m.top.findNode("titleLabel").text.Left(Instr(1, m.top.findNode("titleLabel").text, " "))
-    sameType = Instr(1, leftSide, ogTitle)
-    test = (leftSide.ToStr() + "  " + ogTitle.ToStr() + " " + sameType.ToStr())
+    sameType =  Instr(1, leftSide, ogTitle)
 
-    
-    
-    m.top.findNode(goal).text = Instr(1, leftSide, ogTitle).ToStr()
+    m.top.FindNode("debug").text = m.top.findNode("titleLabel").text
+    if goalCount < goalLimit and sameType > 0 then 
+
+        goalCount = goalCount + 1 
+        m.top.findNode(goal).text = leftSide.ToStr() + " " + "(" + goalCount.ToStr() + "/" + goalLimit.ToStr() + ")"
+
+    end if 
 
 end function

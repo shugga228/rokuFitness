@@ -206,10 +206,11 @@ function genGoal()
     goalList.Clear()
     goalList.AddTail("Watch 2 Cardio videos | (0/2)")
     goalList.AddTail("Watch 3 Sports videos | (0/3)")
-    goalList.AddTail("Watch 1 Conditioning video | (0/1)")
+    goalList.AddTail("Watch 1 Conditioning video | (0/2)")
+    goalList.AddTail("Watch 1 Endurance video | (0/1)")
 
-    goal1 = Fix(Rnd(3)) - 1
-    goal2 = Fix(Rnd(3)) - 1
+    goal1 = Fix(Rnd(4)) - 1
+    goal2 = Fix(Rnd(4)) - 1
 
     if goal1 = goal2 then
         genGoal()
