@@ -44,9 +44,6 @@ sub OnGridScreenItemSelected(event as Object) ' invoked when GridScreen item is 
     itemIndex = m.selectedIndex[1]
     ShowVideoScreen(rowContent, itemIndex)
 
-    checkGoal("miniGoal1")
-    checkGoal("miniGoal2")
-
 end sub
 
 function addCal()
@@ -80,6 +77,7 @@ function addCal()
         notification.color = "0x77eb34ff"
         m.goalString = "Two"
         m.top.FindNode("infoPanel").uri = "pkg:/images/infoPanel2.png"
+        m.top.FindNode("goalBack").uri = "pkg:/images/goal/goalBack2.png"
     else
       ringString = barPercent.ToStr()
     end if
@@ -88,6 +86,11 @@ function addCal()
     ring.iconUri = "pkg:/images/ring/" + ringString + ".png"
 
     count.text = caloriesBurned.ToStr() 
+
+    checkGoal("miniGoal1")
+    checkGoal("miniGoal2")
+
+    
     m.top.FindNode("testTimer").unobserveField("fire")
 
 end function
@@ -130,6 +133,10 @@ function checkGoal(goal as String)
         goalCount = goalCount + 1 
         m.top.findNode(goal).text = leftSide.ToStr() + " " + "(" + goalCount.ToStr() + "/" + goalLimit.ToStr() + ")"
 
+        if goalCount = goalLimit then
+            m.top.FindNode(goal).color = "0x77eb34ff"
+        end if 
     end if 
+
 
 end function

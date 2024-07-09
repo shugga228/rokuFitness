@@ -53,9 +53,9 @@
          
         <MiniKeyboard id = "keyboard" visible = "true" translation="[75,130]"/>
         <Button id = "submitButton" text = "Accept &amp; Continue " showFocusFootprint = "true" minWidth = "240" visible="true" translation="[100,605]"/>
-        <Poster id = "goalBack" uri="pkg:/images/miniBack.png" translation="[70, 50]" width="500" height="120" visible="false"/>
-        <Label id="miniGoal1" text="Watch 2 Cardio videos | (0/2)" color="0xfee469ff" visible="false" translation="[90,75]" font="font:MediumBoldSystemFont"/>
-        <Label id="miniGoal2" text="Watch 3 Conditioning videos | (0/3)" color="0xfee469ff" visible="false" translation="[90,115]" font="font:MediumBoldSystemFont"/>
+        <Poster id = "goalBack" uri="pkg:/images/goal/goalBack.png" translation="[70, 40]" width="500" height="140" visible="false"/>
+        <Label id="miniGoal1" text="Watch 2 Cardio videos | (0/2)" visible="false" translation="[105,75]" font="font:MediumBoldSystemFont"/>
+        <Label id="miniGoal2" text="Watch 3 Conditioning videos | (0/3)" visible="false" translation="[105,115]" font="font:MediumBoldSystemFont"/>
         <Label id="debug" text="debug" color="0xfee469ff" visible="true" translation="[40,0]" font="font:MediumBoldSystemFont"/>
 
 
