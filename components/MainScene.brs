@@ -64,6 +64,8 @@ function OnkeyEvent(key as String, press as Boolean) as Boolean
                 m.top.findNode("goalBack").visible = "false"
                 m.top.findNode("miniGoal1").visible = "false"
                 m.top.findNode("miniGoal2").visible = "false"
+                m.top.findNode("descriptionLabel").visible = true
+                m.top.findNode("titleLabel").visible = true
                 m.top.FindNode("alertTimer").control = "stop"
                 m.top.FindNode("alertTimer").unobserveField("fire")
                 m.top.FindNode("testTimer").unobserveField("fire")
