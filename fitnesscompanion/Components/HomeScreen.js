@@ -10,6 +10,7 @@ const Tabs = createBottomTabNavigator();
 
 export const HomeScreen = props => {
     return (
+        //Creates the tab navigator at the bottom of the screen with appropriate settings
         <Tabs.Navigator
             screenOptions={{
                 tabBarStyle: {
@@ -22,6 +23,7 @@ export const HomeScreen = props => {
                 tabBarInactiveTintColor: 'gray',
             }}
          >
+            {/*The two screen in it plus their images and header*/}
             <Tabs.Screen 
                 name="Connect" 
                 component={ConnectScreen} 
@@ -43,8 +45,10 @@ export const HomeScreen = props => {
 };
 
 const Header = () => {
+    //Load navigation - doesnt work
     const navigation = useNavigation();
     return (
+        //Makes the logo button pop up on the header
         <View style={{
             flex: 1,
             backgroundColor: 'black',

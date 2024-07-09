@@ -52,9 +52,12 @@ export const APIInit = async () => {
 export const Calories = async () => {
     //Starting at beginning of day
     const startTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0, 0);
+    //For android use that API
     if (Platform.OS === "android") {
+        //Wait for android api to initialize if it hasn't
         const isInitialized = await initialize();
         if (isInitialized) {
+            //Reads the current calores burned since midnight
             const result = await readRecords('ActiveCaloriesBurned', {
                 timeRangeFilter: {
                 operator: 'between',
@@ -67,6 +70,7 @@ export const Calories = async () => {
     }
 }
 export const Weight = async () => {
+    //If android then use that
     if (Platform.OS === "android") {
         //Checks if api is initialized on android
         const isInitialized = await initialize();
@@ -78,10 +82,12 @@ export const Weight = async () => {
     }
 }
 export const Height = async () => {
+    //If android then use that
     if (Platform.OS === "android") {
         //Returns Height
         const isInitialized = await initialize();
         if (isInitialized) {
+            //Read the height record
             const result = await readRecord('Height');
             return result;
         }

@@ -8,10 +8,14 @@ import { LogScreen } from "./LogScreen";
 
 const Stack = createStackNavigator();
 
+//First layer of stack
 export const StartApp = () => {
     return (
+        //Provides context for the global variables
         <AppProvider>
+            {/*Make it not break the screen*/}
              <SafeAreaProvider forceInset={{ bottom: 0 }}>
+                {/*Make the app have a constant theme*/}
                 <NavigationContainer theme={theme} >
                     <Stack.Navigator initialRouteName="Home">
                         <Stack.Screen
