@@ -1,6 +1,8 @@
 ' entry point of  MainScene
 sub Init()
     m.calorieGoal = 4000
+    m.loaded = false
+    m.isGoal = false
     ' set toggle to show goalAchieved scene once
     m.goalAchievedShown = false
     ' set background color for scene. Applied only if backgroundUri has empty value
@@ -57,7 +59,6 @@ function OnkeyEvent(key as String, press as Boolean) as Boolean
                 timer = m.top.findNode("testTimer")
                 timer.control = "stop"
                 m.top.FindNode("backgroundTimer").duration = "1"
-                m.top.findNode("viewGoals").visible = "true"
                 m.top.FindNode("logoBack").visible = "true"
                 m.top.FindNode("overhang").visible = "true"
                 m.top.findNode("goalBack").visible = "false"
@@ -76,28 +77,19 @@ function OnkeyEvent(key as String, press as Boolean) as Boolean
             m.board.setFocus(true)
             result = true
 
-        else if key = "up" and not m.top.findNode("viewGoals").hasFocus() and m.top.findNode("viewGoals").visible
-            m.top.findNode("viewGoals").setFocus(true)
-            result = true
-        'm.GridScreen.SetFocus(true)
-        else if key = "down" and m.top.findNode("viewGoals").hasFocus() and m.top.findNode("viewGoals").visible 
-            m.top.findNode("rowList").SetFocus(true)
-            result = true      
-        else if key = "down" and m.isGoal = true
-            m.top.findNode("debug").text = "hi"
-            m.top.findNode("viewGoals").visible = true 
-            m.top.findNode("logoBack").visible = true 
-            m.top.findNode("overhang").visible = true  
-            m.top.findNode("descriptionLabel").visible = true 
-            m.top.findNode("titleLabel").visible = true
-
-            m.top.findNode("goalBack").visible = false 
-            m.top.findNode("miniGoal1").visible = false 
-            m.top.findNode("miniGoal2").visible = false 
-            m.isGoal = false
-            m.top.findNode("rowList").SetFocus(true)
+        else if key = "options" and not m.isGoal and m.loaded
+            showGoals()
+            result = true 
             
-        end if       
+            
+        else if key = "options" and m.isGoal and m.loaded
+            hideGoals()
+            result = true 
+        end if
+
+        
+        
+        
     end if
     ' The OnKeyEvent() function must return true if the component handled the event,
     ' or false if it did not handle the event.
@@ -106,7 +98,7 @@ end function
 
 function initMain()
 
-
+    m.loaded = true 
     m.isGoal = false 
     input = m.board.text
     m.top.findNode("introBack").visble = "false"
@@ -175,7 +167,6 @@ function initMain()
         m.top.findNode("keyboard").visible = "false"
         m.top.findNode("submitButton").visible = "false"
         m.top.findNode("logoBack").visible = "true"
-        m.top.findNode("viewGoals").visible = "true"
 
         m.submit = m.top.FindNode("submitButton")
         m.submit.SetFocus(false)
@@ -187,7 +178,6 @@ function initMain()
         OnMainContentLoaded2()
         background()
 
-        m.top.findNode("viewGoals").ObserveField("buttonSelected", "showGoals")
 
     end if
     
@@ -253,7 +243,6 @@ end function
 function showGoals()
 
     m.isGoal = true 
-    m.top.findNode("viewGoals").visible = false 
     m.top.findNode("logoBack").visible = false 
     m.top.findNode("overhang").visible = false 
     m.top.findNode("descriptionLabel").visible = false
@@ -262,6 +251,21 @@ function showGoals()
     m.top.findNode("goalBack").visible = true 
     m.top.findNode("miniGoal1").visible = true 
     m.top.findNode("miniGoal2").visible = true 
+    
+
+end function
+
+function hideGoals()
+
+    m.isGoal = false 
+    m.top.findNode("logoBack").visible = true 
+    m.top.findNode("overhang").visible = true 
+    m.top.findNode("descriptionLabel").visible = true
+    m.top.findNode("titleLabel").visible = true
+
+    m.top.findNode("goalBack").visible = false 
+    m.top.findNode("miniGoal1").visible = false 
+    m.top.findNode("miniGoal2").visible = false 
     
 
 end function
