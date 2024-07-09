@@ -87,9 +87,6 @@ function OnkeyEvent(key as String, press as Boolean) as Boolean
             result = true 
         end if
 
-        
-        
-        
     end if
     ' The OnKeyEvent() function must return true if the component handled the event,
     ' or false if it did not handle the event.

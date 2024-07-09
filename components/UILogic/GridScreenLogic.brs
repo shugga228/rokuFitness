@@ -7,7 +7,6 @@ end sub
 
 sub OnGridScreenItemSelected(event as Object) ' invoked when GridScreen item is selected
 
-    m.top.findNode("viewGoals").visible = "false"
     m.top.FindNode("logoBack").visible = "false"
     m.top.FindNode("overhang").visible = "false"
 
