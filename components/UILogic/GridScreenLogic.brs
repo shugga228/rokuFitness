@@ -44,8 +44,8 @@ sub OnGridScreenItemSelected(event as Object) ' invoked when GridScreen item is 
     itemIndex = m.selectedIndex[1]
     ShowVideoScreen(rowContent, itemIndex)
 
-    'checkGoal("miniGoal1")
-    'checkGoal("miniGoal2")
+    checkGoal("miniGoal1")
+    checkGoal("miniGoal2")
 
 end sub
 

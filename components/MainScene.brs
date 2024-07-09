@@ -1,8 +1,8 @@
 ' entry point of  MainScene
 sub Init()
-   ' m.calorieGoal = 4000
+    m.calorieGoal = 4000
     ' set toggle to show goalAchieved scene once
-   ' m.goalAchievedShown = false
+    m.goalAchievedShown = false
     ' set background color for scene. Applied only if backgroundUri has empty value
     m.top.backgroundUri= "pkg:/images/background.jpeg"
     m.top.backgroundColor = "0x000000ff"
@@ -20,7 +20,7 @@ sub Init()
     m.goalString = ""
 
 
-    'loadBackgrounds()
+    loadBackgrounds()
     genGoal()
 
 end sub
@@ -31,10 +31,10 @@ function OnkeyEvent(key as String, press as Boolean) as Boolean
 
 
      ' check today's calories
-     'label = m.top.FindNode("counter")
-     'caloriesBurned = label.text.ToInt()
+     label = m.top.FindNode("counter")
+     caloriesBurned = label.text.ToInt()
      ' 
-     'barPercent = (caloriesBurned * 100) / m.calorieGoal
+     barPercent = (caloriesBurned * 100) / m.calorieGoal
 
     if press
         ' handle "back" key press
@@ -47,12 +47,12 @@ function OnkeyEvent(key as String, press as Boolean) as Boolean
 
                 
                 ' if condition true, show goal achieved screen
-                'if barPercent >= 100 and not m.goalAchievedShown
+                if barPercent >= 100 and not m.goalAchievedShown
                     ' Create a new screen for goal achievement
-                    'm.GoalAchievedScreen = CreateObject("roSGNode", "GoalAchievedScreen")
-                    'ShowScreen(m.GoalAchievedScreen) ' Show the goal achieved screen
-                   ' m.goalAchievedShown = true ' Set the toggle variable to true
-                'end if
+                    m.GoalAchievedScreen = CreateObject("roSGNode", "GoalAchievedScreen")
+                    ShowScreen(m.GoalAchievedScreen) ' Show the goal achieved screen
+                    m.goalAchievedShown = true ' Set the toggle variable to true
+                end if
 
                 timer = m.top.findNode("testTimer")
                 timer.control = "stop"
@@ -116,7 +116,7 @@ function initMain()
             calGoal = 4000
         end if 
 
-        'm.calorieGoal = calGoal
+        m.calorieGoal = calGoal
         m.top.findNode("counter").text = calInit.toStr()
 
         barPercent = (calInit.ToInt() * 100) / calGoal

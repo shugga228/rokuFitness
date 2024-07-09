@@ -4,20 +4,36 @@
         <Rectangle id="background" width="1920" height="1080" color="0x000000" />
         <Poster
             id="backgroundImage"
-            uri="pkg:/images/backgroundImage1.png"
+            uri="pkg:/images/background.jpeg"
             width="1920"
             height="1080"
             loadSync="true"
         />
         <Label 
          id="congratulationsLabel"
-         text=" Congratulations! Goal Achieved!" 
-         translation="[0, 0]"
+         text="Daily Calorie Goal Achieved" 
+         translation="[200, 200]"
          width="1280"
          height="720"
          horizAlign="center"
          vertAlign="center"
-         color="0x000000"
+         color="0x77eb34ff"
+         />
+         <Poster
+            id="streakIcon"
+            uri="pkg:/images/streak.png"
+            loadSync="true"
+            translation="[500, 500]"
+        />
+        <Label 
+         id="steak"
+         text="1 Day Steak" 
+         translation="[300, 500]"
+         width="1280"
+         height="720"
+         horizAlign="center"
+         vertAlign="center"
+         color="0x77eb34ff"
          />
         
         <!-- Add other UI elements as needed -->
