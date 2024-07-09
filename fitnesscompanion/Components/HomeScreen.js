@@ -1,10 +1,11 @@
 import { useNavigation } from '@react-navigation/native';
 import { Button, View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Ionicons, MaterialIcons } from '@expo/vector-icons'; 
+import { Ionicons, MaterialIcons, Feather } from '@expo/vector-icons'; 
 import { ConnectScreen } from "./ConnectScreen";
 import { SettingsScreen } from "./Settings";
 import { styles } from './Style';
+import { LogScreen } from './LogScreen';
 
 const Tabs = createBottomTabNavigator();
 
@@ -28,42 +29,23 @@ export const HomeScreen = props => {
                 name="Connect" 
                 component={ConnectScreen} 
                 options={{ 
-                    tabBarIcon: ({ color }) => <MaterialIcons name="connected-tv" size={24} color={color} />, 
-                    header: () => <Header/>
+                    tabBarIcon: ({ color }) => <MaterialIcons name="connected-tv" size={24} color={color} />
                 }} 
             />
             <Tabs.Screen 
                 name="Settings" 
                 component={SettingsScreen} 
                 options={{ 
-                    tabBarIcon: ({ color }) => <Ionicons name="settings-sharp" size={24} color={color} />, 
-                    header: () => <Header/>
+                    tabBarIcon: ({ color }) => <Ionicons name="settings-sharp" size={24} color={color} />
+                }} 
+            />
+            <Tabs.Screen 
+                name="Logs" 
+                component={LogScreen} 
+                options={{ 
+                    tabBarIcon: ({ color }) => <Feather name="clipboard" size={24} color={color} />
                 }} 
             />
         </Tabs.Navigator>
-    );
-};
-
-const Header = () => {
-    //Load navigation - doesnt work
-    const navigation = useNavigation();
-    return (
-        //Makes the logo button pop up on the header
-        <View style={{
-            flex: 1,
-            backgroundColor: 'black',
-            height: 100,
-            justifyContent: 'bottom',
-            alignItems: 'left',
-        }}>
-            <View style={styles.header}>
-                <Button 
-                    style={styles.button} 
-                    title='Logs' 
-                    color={'white'} 
-                    onPress={() => navigation.navigate('Logs')}
-                />
-            </View>
-        </View>
     );
 };
