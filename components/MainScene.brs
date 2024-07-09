@@ -38,7 +38,7 @@ function OnkeyEvent(key as String, press as Boolean) as Boolean
 
     if press
         ' handle "back" key press
-        if key = "back"
+        if key = "back"  
             numberOfScreens = m.screenStack.Count()
             ' close top screen if there are two or more screens in the screen stack
             if numberOfScreens > 1
@@ -57,6 +57,7 @@ function OnkeyEvent(key as String, press as Boolean) as Boolean
                 timer = m.top.findNode("testTimer")
                 timer.control = "stop"
                 m.top.FindNode("backgroundTimer").duration = "1"
+                m.top.findNode("viewGoals").visible = "true"
                 m.top.FindNode("logoBack").visible = "true"
                 m.top.FindNode("overhang").visible = "true"
                 m.top.findNode("goalBack").visible = "false"
@@ -74,7 +75,29 @@ function OnkeyEvent(key as String, press as Boolean) as Boolean
         else if key = "up" and not m.board.hasFocus() and m.board.visible
             m.board.setFocus(true)
             result = true
-        end if 
+
+        else if key = "up" and not m.top.findNode("viewGoals").hasFocus() and m.top.findNode("viewGoals").visible
+            m.top.findNode("viewGoals").setFocus(true)
+            result = true
+        'm.GridScreen.SetFocus(true)
+        else if key = "down" and m.top.findNode("viewGoals").hasFocus() and m.top.findNode("viewGoals").visible 
+            m.top.findNode("rowList").SetFocus(true)
+            result = true      
+        else if key = "down" and m.isGoal = true
+            m.top.findNode("debug").text = "hi"
+            m.top.findNode("viewGoals").visible = true 
+            m.top.findNode("logoBack").visible = true 
+            m.top.findNode("overhang").visible = true  
+            m.top.findNode("descriptionLabel").visible = true 
+            m.top.findNode("titleLabel").visible = true
+
+            m.top.findNode("goalBack").visible = false 
+            m.top.findNode("miniGoal1").visible = false 
+            m.top.findNode("miniGoal2").visible = false 
+            m.isGoal = false
+            m.top.findNode("rowList").SetFocus(true)
+            
+        end if       
     end if
     ' The OnKeyEvent() function must return true if the component handled the event,
     ' or false if it did not handle the event.
@@ -83,6 +106,8 @@ end function
 
 function initMain()
 
+
+    m.isGoal = false 
     input = m.board.text
     m.top.findNode("introBack").visble = "false"
 
@@ -150,6 +175,7 @@ function initMain()
         m.top.findNode("keyboard").visible = "false"
         m.top.findNode("submitButton").visible = "false"
         m.top.findNode("logoBack").visible = "true"
+        m.top.findNode("viewGoals").visible = "true"
 
         m.submit = m.top.FindNode("submitButton")
         m.submit.SetFocus(false)
@@ -160,6 +186,9 @@ function initMain()
         RunContentTask()
         OnMainContentLoaded2()
         background()
+
+        m.top.findNode("viewGoals").ObserveField("buttonSelected", "showGoals")
+
     end if
     
 end function 
@@ -218,6 +247,22 @@ function genGoal()
         m.top.findNode("miniGoal1").text = goalList[goal1].ToStr()
         m.top.findNode("miniGoal2").text = goalList[goal2].ToStr()
     end if 
+
+end function
+
+function showGoals()
+
+    m.isGoal = true 
+    m.top.findNode("viewGoals").visible = false 
+    m.top.findNode("logoBack").visible = false 
+    m.top.findNode("overhang").visible = false 
+    m.top.findNode("descriptionLabel").visible = false
+    m.top.findNode("titleLabel").visible = false
+
+    m.top.findNode("goalBack").visible = true 
+    m.top.findNode("miniGoal1").visible = true 
+    m.top.findNode("miniGoal2").visible = true 
+    
 
 end function
 

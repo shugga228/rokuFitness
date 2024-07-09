@@ -20,3 +20,9 @@ sub OnMainContentLoaded2()
     m.top.findNode("descriptionLabel").visible = "true"
     m.top.findNode("rowList").visible = "true"
 end sub
+
+sub setFocus()
+
+    m.GridScreen.SetFocus(true)
+
+end sub
