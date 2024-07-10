@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <component name="GoalAchievedScreen" extends="Group" >
+<script type="text/brightscript" uri="GoalAchievedScreen.brs" />
     <children>
         <Rectangle id="background" width="1920" height="1080" color="0x000000" />
         <Poster
@@ -11,24 +12,26 @@
         />
         <Label 
          id="congratulationsLabel"
-         text="Daily Calorie Goal Achieved" 
+         text="1" 
          translation="[200, 200]"
          width="1280"
          height="720"
          horizAlign="center"
          vertAlign="center"
          color="0x77eb34ff"
+         visible="false"
          />
          <Poster
             id="streakIcon"
             uri="pkg:/images/streak.png"
             loadSync="true"
-            translation="[500, 500]"
+            translation="[0, 0]"
+            visible="false"
         />
         <Label 
-         id="steak"
+         id="streak"
          text="1 Day Steak" 
-         translation="[300, 500]"
+         translation="[0, 300]"
          width="1280"
          height="720"
          horizAlign="center"
