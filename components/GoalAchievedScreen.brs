@@ -1,5 +1,10 @@
 sub Init()
 
+    m.top.findNode("streak").font.size = 150
+    
+    m.top.backgroundUri= "pkg:/images/background.jpeg"
+
+
     if GetAuthData() <> invalid
         temp = GetAuthData().ToInt()
         temp = temp + 1

@@ -24,6 +24,7 @@ sub Init()
 
     loadBackgrounds()
     genGoal()
+    'getData()
 
 end sub
 
@@ -67,6 +68,7 @@ function OnkeyEvent(key as String, press as Boolean) as Boolean
                 m.top.findNode("descriptionLabel").visible = true
                 m.top.findNode("titleLabel").visible = true
                 m.top.FindNode("alertTimer").control = "stop"
+                m.top.FindNode("videoBack").visible = "false"
                 m.top.FindNode("alertTimer").unobserveField("fire")
                 m.top.FindNode("testTimer").unobserveField("fire")
             end if
@@ -266,6 +268,22 @@ function hideGoals()
     m.top.findNode("miniGoal1").visible = false 
     m.top.findNode("miniGoal2").visible = false 
     
+
+end function
+
+function getData()
+
+    ' URL of the CSV file
+    csvUrl = "https://docs.google.com/spreadsheets/d/1TKZSa9xSr6qPjNlKidF88cGOCZkJaeA5ebO3hGrHOwE/export?format=csv"
+
+    ' Create a UrlTransfer object
+    transfer = CreateObject("roUrlTransfer")
+    transfer.SetUrl(csvUrl)
+
+    ' Get the response as a string
+    csvString = transfer.GetToString()
+
+    'm.top.findNode("debug").text = csvString.ToStr()
 
 end function
 

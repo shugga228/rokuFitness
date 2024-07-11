@@ -2,7 +2,9 @@
 <component name="GoalAchievedScreen" extends="Group" >
 <script type="text/brightscript" uri="GoalAchievedScreen.brs" />
     <children>
+
         <Rectangle id="background" width="1920" height="1080" color="0x000000" />
+
         <Poster
             id="backgroundImage"
             uri="pkg:/images/background.jpeg"
@@ -10,33 +12,25 @@
             height="1080"
             loadSync="true"
         />
-        <Label 
-         id="congratulationsLabel"
-         text="1" 
-         translation="[200, 200]"
-         width="1280"
-         height="720"
-         horizAlign="center"
-         vertAlign="center"
-         color="0x77eb34ff"
-         visible="false"
-         />
+
          <Poster
             id="streakIcon"
             uri="pkg:/images/streak.png"
             loadSync="true"
-            translation="[0, 0]"
-            visible="false"
+            translation="[100, 275]"
+            visible="true"
+            width="200"
+            height="200"
         />
         <Label 
          id="streak"
          text="1 Day Steak" 
-         translation="[0, 300]"
+         translation="[0, 200]"
          width="1280"
          height="720"
          horizAlign="center"
          vertAlign="center"
-         color="0x77eb34ff"
+         color="0xfde368ff"
          />
         
         <!-- Add other UI elements as needed -->

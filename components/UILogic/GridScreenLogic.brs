@@ -20,6 +20,7 @@ sub OnGridScreenItemSelected(event as Object) ' invoked when GridScreen item is 
     m.top.findNode("goalBack").visible = "true"
     m.top.findNode("miniGoal1").visible = "true"
     m.top.findNode("miniGoal2").visible = "true"
+    m.top.FindNode("videoBack").visible = "true"
     
     title = m.top.FindNode("titleLabel")
     timer = m.top.findNode("testTimer")
@@ -78,6 +79,7 @@ function addCal()
         m.goalString = "Two"
         m.top.FindNode("infoPanel").uri = "pkg:/images/infoPanel2.png"
         m.top.FindNode("goalBack").uri = "pkg:/images/goal/goalBack2.png"
+        m.top.findNode("videoBack").uri = "pkg:/images/videoBack2.png"
     else
       ringString = barPercent.ToStr()
     end if
