@@ -31,6 +31,7 @@
          horizAlign="center"
          vertAlign="center"
          color="0xfde368ff"
+         font = "font:LargeBoldSystemFont" 
          />
         
         <!-- Add other UI elements as needed -->

@@ -24,7 +24,7 @@ sub Init()
 
     loadBackgrounds()
     genGoal()
-    'getData()
+    'harvest()
 
 end sub
 
@@ -271,7 +271,7 @@ function hideGoals()
 
 end function
 
-function getData()
+function harvest()
 
     ' URL of the CSV file
     csvUrl = "https://docs.google.com/spreadsheets/d/1TKZSa9xSr6qPjNlKidF88cGOCZkJaeA5ebO3hGrHOwE/export?format=csv"

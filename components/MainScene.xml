@@ -56,7 +56,7 @@
         <Poster id = "goalBack" uri="pkg:/images/goal/goalBack.png" translation="[70, 40]" width="500" height="140" visible="false"/>
         <Label id="miniGoal1" text="Watch 2 Cardio videos | (0/2)" visible="false" translation="[105,75]" font="font:MediumBoldSystemFont"/>
         <Label id="miniGoal2" text="Watch 3 Conditioning videos | (0/3)" visible="false" translation="[105,115]" font="font:MediumBoldSystemFont"/>
-        <Label id="debug" text="debug" color="0xfee469ff" visible="true" translation="[40,0]" font="font:MediumBoldSystemFont"/>
+        <Label id="debug" text="debug" color="0xfee469ff" visible="false" translation="[40,0]" font="font:MediumBoldSystemFont"/>
         <Poster id="videoBack" uri="pkg:/images/videoBack.png" translation="[122,198]" width="1035" height="600" visible="false"/>
 
 
