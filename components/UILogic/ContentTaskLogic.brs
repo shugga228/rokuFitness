@@ -14,7 +14,6 @@ sub OnMainContentLoaded() ' invoked when content is ready to be used
     loadMotion()
     
     time = m.top.findNode("motionTimer")
-    time.control = "start"
     time.ObserveField("fire", "updateMotion")
     
 
@@ -46,6 +45,12 @@ end function
 
 function updateMotion()
 
-    m.top.findNode("debug").text = m.xfer.GetToString()
+    mxx = m.xfer.GetToString()
+    m.top.findNode("debug").text = mxx
 
+    if Instr(1, mxx, "true") <> 0 then
+        m.top.findNode("motionIndicator").uri = "pkg:/images/green.png"
+    else
+        m.top.findNode("motionIndicator").uri = "pkg:/images/red.png"
+    end if 
 end function

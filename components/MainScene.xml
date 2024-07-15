@@ -42,7 +42,7 @@
         <Timer id="testTimer" repeat="false" duration="3"/>
         <Timer id="backgroundTimer" repeat="true" duration="1"/>
         <Timer id="alertTimer" repeat="true" duration="0.3"/>
-        <Timer id="motionTimer" repeat="true" duration="4"/>
+        <Timer id="motionTimer" repeat="true" duration="5"/>
         
 
 
@@ -59,6 +59,7 @@
         <Label id="miniGoal2" text="Watch 3 Conditioning videos | (0/3)" visible="false" translation="[105,115]" font="font:MediumBoldSystemFont"/>
         <Label id="debug" text="debug" color="0xfee469ff" visible="true" translation="[40,0]" font="font:MediumBoldSystemFont"/>
         <Poster id="videoBack" uri="pkg:/images/videoBack.png" translation="[122,198]" width="1035" height="600" visible="false"/>
+        <Poster id="motionIndicator" uri="pkg:/images/red.png" translation="[0,0]" width="20" height="1300" visible="false"/>
 
 
         

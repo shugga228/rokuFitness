@@ -9,6 +9,7 @@ sub OnGridScreenItemSelected(event as Object) ' invoked when GridScreen item is 
 
     m.top.FindNode("logoBack").visible = "false"
     m.top.FindNode("overhang").visible = "false"
+    m.top.findNode("motionTimer").control = "start"
 
     flash = m.top.FindNode("alertTimer")
 
@@ -21,6 +22,7 @@ sub OnGridScreenItemSelected(event as Object) ' invoked when GridScreen item is 
     m.top.findNode("miniGoal1").visible = "true"
     m.top.findNode("miniGoal2").visible = "true"
     m.top.FindNode("videoBack").visible = "true"
+    m.top.FindNode("motionIndicator").visible = "true"
     
     title = m.top.FindNode("titleLabel")
     timer = m.top.findNode("testTimer")
