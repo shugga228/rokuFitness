@@ -11,6 +11,7 @@ sub OnMainContentLoaded() ' invoked when content is ready to be used
     m.loadingIndicator.visible = false ' hide loading indicator because content was retrieved
     m.GridScreen.content = m.contentTask.content ' populate GridScreen with content
 
+    m.wasMoving = false
     loadMotion()
     
     time = m.top.findNode("motionTimer")
@@ -50,6 +51,7 @@ function updateMotion()
 
     if Instr(1, mxx, "true") <> 0 then
         m.top.findNode("motionIndicator").uri = "pkg:/images/green.png"
+        m.wasMoving = true
     else
         m.top.findNode("motionIndicator").uri = "pkg:/images/red.png"
     end if 

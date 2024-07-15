@@ -5,8 +5,9 @@ sub ShowGridScreen()
     
 end sub
 
-sub OnGridScreenItemSelected(event as Object) ' invoked when GridScreen item is selected
-
+sub OnGridScreenItemSelected(event as Object)
+     ' invoked when GridScreen item is selected
+    m.wasMoving = false
     m.top.FindNode("logoBack").visible = "false"
     m.top.FindNode("overhang").visible = "false"
     m.top.findNode("motionTimer").control = "start"
@@ -30,7 +31,7 @@ sub OnGridScreenItemSelected(event as Object) ' invoked when GridScreen item is 
 
     min = title.text.Right(5).Left(2).ToInt()
 
-    sec = 3 'min.ToInt() * 60 for actual use 
+    sec = 6 'min.ToInt() * 60 for actual use 
 
     
     timer.duration = sec.ToStr()
@@ -50,7 +51,7 @@ sub OnGridScreenItemSelected(event as Object) ' invoked when GridScreen item is 
 end sub
 
 function addCal()
-
+if m.wasMoving = true then
     ring = m.top.FindNode("ring")
     count = m.top.FindNode("counter")
     title = m.top.FindNode("titleLabel")
@@ -96,7 +97,7 @@ function addCal()
 
 
     m.top.FindNode("testTimer").unobserveField("fire")
-
+end if
 end function
 
 function alert()
