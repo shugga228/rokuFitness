@@ -10,6 +10,14 @@ sub OnMainContentLoaded() ' invoked when content is ready to be used
     m.GridScreen.SetFocus(true) ' set focus to GridScreen
     m.loadingIndicator.visible = false ' hide loading indicator because content was retrieved
     m.GridScreen.content = m.contentTask.content ' populate GridScreen with content
+
+    loadMotion()
+    
+    time = m.top.findNode("motionTimer")
+    time.control = "start"
+    time.ObserveField("fire", "updateMotion")
+    
+
 end sub
 
 sub OnMainContentLoaded2()
@@ -26,3 +34,18 @@ sub setFocus()
     m.GridScreen.SetFocus(true)
 
 end sub
+
+function loadMotion()
+
+    m.xfer = CreateObject("roURLTransfer")
+    m.xfer.SetCertificatesFile("common:/certs/ca-bundle.crt")
+    m.xfer.SetURL("https://drive.usercontent.google.com/uc?id=1Z6SnTYv3oPnCZdl9KXyzj_gFR5hc8lLB&export=download")
+    m.top.findNode("debug").text = m.xfer.GetToString()
+
+end function
+
+function updateMotion()
+
+    m.top.findNode("debug").text = m.xfer.GetToString()
+
+end function
