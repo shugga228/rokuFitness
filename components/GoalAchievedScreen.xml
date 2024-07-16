@@ -15,12 +15,13 @@
 
          <Poster
             id="streakIcon"
-            uri="pkg:/images/streak.png"
+            uri="pkg:/images/streak/1.png"
             loadSync="true"
-            translation="[100, 275]"
+            translation="[0, -50]"
             visible="true"
-            width="200"
-            height="200"
+            width="1280"
+            height="720"
+
         />
         <Label 
          id="streak"
@@ -33,6 +34,9 @@
          color="0xfde368ff"
          font = "font:LargeBoldSystemFont" 
          />
+
+        <Timer id="animationTimer" repeat="true" duration="0.7"/>
+
         
         <!-- Add other UI elements as needed -->
     </children>

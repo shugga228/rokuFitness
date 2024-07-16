@@ -3,6 +3,12 @@ sub Init()
     m.top.findNode("streak").font.size = 150
     
     m.top.backgroundUri= "pkg:/images/background.jpeg"
+    'm.top.findNode("motionTimer").control = "stop"
+
+    fTime = m.top.findNode("animationTimer")
+    fTime.control = "start"
+    m.fc = 1
+    fTime.ObserveField("fire", "frame")
 
 
     if GetAuthData() <> invalid
@@ -22,6 +28,20 @@ sub Init()
     
 end sub
 
+
+function OnkeyEvent(key as String, press as Boolean) as Boolean
+
+    result = false
+
+    if press
+        ' handle "back" key press
+        if key = "back"  
+                m.top.findNode("animationTimer").control = "stop"
+            end if
+        end if
+ 
+    return result
+end function
 Function GetAuthData() As Dynamic
 
     reg = CreateObject("roRegistry")
@@ -42,3 +62,14 @@ Function SetAuthData(currentStreak As String) As Void
     sec.Flush()
 
 End Function
+
+function frame()
+
+    m.top.findNode("streakIcon").uri = "pkg:/images/streak/" + m.fc.ToStr() + ".png"
+    m.fc = m.fc + 1
+
+    if m.fc = 5 then
+        m.fc = 1
+    end if 
+
+end function

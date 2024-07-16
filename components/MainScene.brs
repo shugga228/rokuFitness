@@ -24,7 +24,6 @@ sub Init()
 
     loadBackgrounds()
     genGoal()
-    'harvest()
 
 end sub
 
