@@ -42,7 +42,7 @@
         <Timer id="testTimer" repeat="false" duration="3"/>
         <Timer id="backgroundTimer" repeat="true" duration="1"/>
         <Timer id="alertTimer" repeat="true" duration="0.3"/>
-        <Timer id="motionTimer" repeat="true" duration="3"/>
+        <Timer id="motionTimer" repeat="true" duration="14"/>
         
 
 

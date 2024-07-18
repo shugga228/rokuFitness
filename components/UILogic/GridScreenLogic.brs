@@ -31,7 +31,7 @@ sub OnGridScreenItemSelected(event as Object)
 
     min = title.text.Right(5).Left(2).ToInt()
 
-    sec = 6 'min.ToInt() * 60 for actual use 
+    sec = 19 'min.ToInt() * 60 for actual use 
 
     
     timer.duration = sec.ToStr()
