@@ -1,0 +1,276 @@
+' entry point of  MainScene
+sub Init()
+    m.calorieGoal = 4000
+    m.loaded = false
+    m.isGoal = false
+    ' set toggle to show goalAchieved scene once
+    m.goalAchievedShown = false
+    ' set background color for scene. Applied only if backgroundUri has empty value
+    m.top.backgroundUri= "pkg:/images/background.jpeg"
+    m.top.backgroundColor = "0x000000ff"
+
+    ' add back if you want to use specific background image
+    ' m.top.backgroundUri= "pkg:/images/background.png"
+    m.loadingIndicator = m.top.FindNode("loadingIndicator") ' store loadingIndicator node to m
+    InitScreenStack()
+    'ShowGridScreen()
+    'RunContentTask() ' retrieving content
+    m.board = m.top.FindNode("keyboard")
+    m.submit = m.top.FindNode("submitButton")
+    m.board.SetFocus(true)
+    m.submit.ObserveField("buttonSelected", "initMain")
+    m.goalString = ""
+
+
+    loadBackgrounds()
+    genGoal()
+
+end sub
+
+' The OnKeyEvent() function receives remote control key events
+function OnkeyEvent(key as String, press as Boolean) as Boolean
+    result = false
+
+
+     ' check today's calories
+     label = m.top.FindNode("counter")
+     caloriesBurned = label.text.ToInt()
+     ' 
+     barPercent = (caloriesBurned * 100) / m.calorieGoal
+
+    if press
+        ' handle "back" key press
+        if key = "back"  
+            numberOfScreens = m.screenStack.Count()
+            ' close top screen if there are two or more screens in the screen stack
+            if numberOfScreens > 1
+                CloseScreen(invalid)
+                result = true
+
+                
+                ' if condition true, show goal achieved screen
+                if barPercent >= 100 and not m.goalAchievedShown
+                    ' Create a new screen for goal achievement
+                    m.GoalAchievedScreen = CreateObject("roSGNode", "GoalAchievedScreen")
+                    ShowScreen(m.GoalAchievedScreen) ' Show the goal achieved screen
+                    m.goalAchievedShown = true ' Set the toggle variable to true
+                end if
+
+                timer = m.top.findNode("testTimer")
+                timer.control = "stop"
+                m.top.FindNode("backgroundTimer").duration = "1"
+                m.top.FindNode("logoBack").visible = "true"
+                m.top.FindNode("overhang").visible = "true"
+                m.top.findNode("goalBack").visible = "false"
+                m.top.findNode("miniGoal1").visible = "false"
+                m.top.findNode("miniGoal2").visible = "false"
+                m.top.findNode("descriptionLabel").visible = true
+                m.top.findNode("titleLabel").visible = true
+                m.top.FindNode("alertTimer").control = "stop"
+                m.top.FindNode("videoBack").visible = "false"
+                m.top.FindNode("motionIndicator").visible = "false"
+                m.top.findNode("motionTimer").control = "stop"
+                m.top.findNode("motionIndicator").uri = "pkg:/images/red.png"
+                m.top.FindNode("alertTimer").unobserveField("fire")
+                m.top.FindNode("testTimer").unobserveField("fire")
+            end if
+        end if
+        if key = "down" and not m.submit.hasFocus() and m.submit.visible
+            m.submit.setFocus(true)
+            result = true
+        
+        else if key = "up" and not m.board.hasFocus() and m.board.visible
+            m.board.setFocus(true)
+            result = true
+
+        else if key = "options" and not m.isGoal and m.loaded
+            showGoals()
+            result = true 
+            
+            
+        else if key = "options" and m.isGoal and m.loaded
+            hideGoals()
+            result = true 
+        end if
+
+    end if
+    ' The OnKeyEvent() function must return true if the component handled the event,
+    ' or false if it did not handle the event.
+    return result
+end function
+
+function initMain()
+
+    m.loaded = true 
+    m.isGoal = false 
+    input = m.board.text
+    m.top.findNode("introBack").visble = "false"
+
+    if Instr(1, input.ToStr(), "kg") < 1 or Instr(1, input.ToStr(), "cm") < 1 or Instr(1, input.ToStr(), "cal") < 1 then
+        m.board.text = ""
+    else
+
+        
+        '80kg 190cm 400cal format digits dont matter
+        height = Right(Left(input.ToStr(), Instr(1, input.ToStr(), "cm") - 1), Instr(1, input.ToStr(), "kg"))
+        weight = Left(input.ToStr(), Instr(1, input.ToStr(), "kg") - 1)
+        calInit = Right(input.ToStr(), Instr(1, input.ToStr(), "cm") - 3).Replace("cal", "")
+
+        m.top.findNode("weight").text = weight.ToStr() + " kg"
+        m.top.findNode("height").text = height.ToStr() + " cm"
+
+        bmi = weight.ToFloat() / (height.ToFloat() / 100 * height.ToFloat() / 100)
+
+
+        if bmi < 18.5 then 
+            calGoal = 1500
+        else if 18.5 <= bmi and bmi < 24.9 then 
+            calGoal = 2000
+        else if 25 <= bmi and bmi < 29.9 then 
+            calGoal = 2500
+        else if 30 <= bmi and bmi < 34.9 then 
+            calGoal = 3000
+        else if 35 <= bmi and bmi < 39.9 then 
+            calGoal = 3500
+        else 
+            calGoal = 4000
+        end if 
+
+        m.calorieGoal = calGoal
+        m.top.findNode("counter").text = calInit.toStr()
+
+        barPercent = (calInit.ToInt() * 100) / calGoal
+
+        barPercent = Fix(barPercent)
+
+    if barPercent >= 100 then
+            ringString = "100"
+            notification.color = "0x77eb34ff"
+        else
+        ringString = barPercent.ToStr()
+        end if
+
+        
+        m.top.findNode("ring").iconUri = "pkg:/images/ring/" + ringString + ".png"
+        m.top.findNode("goalLabel").text = "Daily Calorie Goal: " + calGoal.ToStr()
+
+        
+        m.top.findNode("info").text = input.ToStr()
+        
+        m.top.findNode("goalLabel").visible = "true"
+        m.top.findNode("infoPanel").visible = "true"
+        m.top.findNode("weight").visible = "true"
+        m.top.findNode("height").visible = "true"
+        m.top.findNode("counter").visible = "true"
+        m.top.findNode("ring").visible = "true"
+        m.top.findNode("overhang").visible = "true"
+        m.top.findNode("tos").visible = "false"
+        m.top.findNode("tos2").visible = "false"
+        m.top.findNode("tosLogo").visible = "false"
+        m.top.findNode("keyboard").visible = "false"
+        m.top.findNode("submitButton").visible = "false"
+        m.top.findNode("logoBack").visible = "true"
+
+        m.submit = m.top.FindNode("submitButton")
+        m.submit.SetFocus(false)
+        m.board = m.top.FindNode("keyboard")
+        m.board.SetFocus(false)
+
+        ShowGridScreen()
+        RunContentTask()
+        OnMainContentLoaded2()
+        background()
+
+
+    end if
+    
+end function 
+
+function background()
+
+    backTimer = m.top.FindNode("backgroundTimer")
+    backTimer.control = "start"
+    m.frame = 0
+    backTimer.ObserveField("fire", "gif")
+
+end function 
+
+function gif()
+    
+    m.frame = m.frame + 1 
+    m.top.backgroundUri= "pkg:/images/background" + m.goalString + "/" + m.frame.ToStr() + ".png"
+    if m.frame > 7 then
+        m.frame = 0 
+    end if
+    
+end function
+
+function loadBackgrounds()
+
+    
+    m.top.backgroundUri= "pkg:/images/background/1.png"
+    m.top.backgroundUri= "pkg:/images/background/2.png"
+    m.top.backgroundUri= "pkg:/images/background/3.png"
+    m.top.backgroundUri= "pkg:/images/background/4.png"
+    m.top.backgroundUri= "pkg:/images/background/5.png"
+    m.top.backgroundUri= "pkg:/images/background/6.png"
+    m.top.backgroundUri= "pkg:/images/background/7.png"
+    m.top.backgroundUri= "pkg:/images/background/8.png"
+
+    m.top.backgroundUri= "pkg:/images/background.jpeg"
+
+end function
+
+function genGoal()
+
+    
+    goalList = CreateObject("roList")
+    goalList.Clear()
+    goalList.AddTail("• Watch 2 Cardio videos | (0/2)")
+    goalList.AddTail("• Watch 3 Sports videos | (0/3)")
+    goalList.AddTail("• Watch 1 Conditioning video | (0/1)")
+    goalList.AddTail("• Watch 1 Endurance video | (0/1)")
+
+    goal1 = Fix(Rnd(4)) - 1
+    goal2 = Fix(Rnd(4)) - 1
+
+    if goal1 = goal2 then
+        genGoal()
+    else
+        m.top.findNode("miniGoal1").text = goalList[goal1].ToStr()
+        m.top.findNode("miniGoal2").text = goalList[goal2].ToStr()
+    end if 
+
+end function
+
+function showGoals()
+
+    m.isGoal = true 
+    m.top.findNode("logoBack").visible = false 
+    m.top.findNode("overhang").visible = false 
+    m.top.findNode("descriptionLabel").visible = false
+    m.top.findNode("titleLabel").visible = false
+
+    m.top.findNode("goalBack").visible = true 
+    m.top.findNode("miniGoal1").visible = true 
+    m.top.findNode("miniGoal2").visible = true 
+    
+
+end function
+
+function hideGoals()
+
+    m.isGoal = false 
+    m.top.findNode("logoBack").visible = true 
+    m.top.findNode("overhang").visible = true 
+    m.top.findNode("descriptionLabel").visible = true
+    m.top.findNode("titleLabel").visible = true
+
+    m.top.findNode("goalBack").visible = false 
+    m.top.findNode("miniGoal1").visible = false 
+    m.top.findNode("miniGoal2").visible = false 
+    
+
+end function
+
+

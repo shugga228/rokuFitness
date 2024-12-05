@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="GoalAchievedScreen" extends="Group" >
+<script type="text/brightscript" uri="GoalAchievedScreen.brs" />
+    <children>
+
+        <Rectangle id="background" width="1920" height="1080" color="0x000000" />
+
+        <Poster
+            id="backgroundImage"
+            uri="pkg:/images/background.jpeg"
+            width="1920"
+            height="1080"
+            loadSync="true"
+        />
+
+         <Poster
+            id="streakIcon"
+            uri="pkg:/images/streak/1.png"
+            loadSync="true"
+            translation="[0, -50]"
+            visible="true"
+            width="1280"
+            height="720"
+
+        />
+        <Label 
+         id="streak"
+         text="1 Day Steak" 
+         translation="[0, 200]"
+         width="1280"
+         height="720"
+         horizAlign="center"
+         vertAlign="center"
+         color="0xfde368ff"
+         font = "font:LargeBoldSystemFont" 
+         />
+
+        <Timer id="animationTimer" repeat="true" duration="0.7"/>
+
+        
+        <!-- Add other UI elements as needed -->
+    </children>
+</component>

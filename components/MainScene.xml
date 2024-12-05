@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component name="MainScene" extends="Scene">
+    <script type="text/brightscript" uri="MainScene.brs" />
+    <script type="text/brightscript" uri="UILogic/ScreenStackLogic.brs" />
+    <script type="text/brightscript" uri="UILogic/ContentTaskLogic.brs" />
+    <script type="text/brightscript" uri="UILogic/GridScreenLogic.brs" />
+    <script type="text/brightscript" uri="UILogic/VideoPlayerLogic.brs" />
+    <children>
+
+
+         <Poster id = "introBack" uri="pkg:/images/splash_hd.jpg" translation="[0, 0]" width="1920" height="1080" visible="true"/>
+         <Button id="logoBack" text="" textColor="0xff0000ff" iconUri="pkg:/images/miniBack.png" focusedTextColor="0xff0000ff" translation="[-245, -35]" visible="false"/>
+         <Overhang
+            id="overhang"
+            showOptions="false"
+            showClock="false"
+            logoUri="pkg:/images/old.png"
+            translation="[-50,-43]"
+            visible="false"
+        />
+        <Label
+            id="loadingIndicator"
+            text="Loading..."
+            width="1280"
+            height="720"
+            translation="[0, 0]"
+            horizAlign="center"
+            vertAlign="center"
+            visible="false"
+            font="font:MediumBoldSystemFont"
+        />
+
+        
+        <Poster id="infoPanel" uri="pkg:/images/infoPanel.png" width="730" height="730" translation="[615, -257]" visible="false"/>
+        <Label id="goalLabel" text="Daily Calorie Goal" color="0xfee469ff" visible="false" translation="[745,80]" font="font:MediumBoldSystemFont"/>
+        <Label id="weight" text="90 kg" visible="false" translation="[745,110]" font="font:MediumBoldSystemFont"/>
+        <Label id="height" text="2.3 m" visible="false" translation="[845,110]" font="font:MediumBoldSystemFont"/>
+        <Label id="counter" color="0xfde368ff" text="0" visible="false" translation="[1113,104]" horizAlign="center" vertAlign="center" font="font:MediumBoldSystemFont"/>
+        <Button id="ring" text="" textColor="0xff0000ff" iconUri="pkg:/images/ring/0.png" focusedTextColor="0xff0000ff" width="40" height="40" translation="[1023, 87]" visible="false"/>
+        <Poster id="tosLogo" uri="pkg:/images/tosLogo.png" translation="[500, 100]" width="700" height="588" visible="true"/>
+        <Timer id="testTimer" repeat="false" duration="3"/>
+        <Timer id="backgroundTimer" repeat="true" duration="1"/>
+        <Timer id="alertTimer" repeat="true" duration="0.3"/>
+        <Timer id="motionTimer" repeat="true" duration="14"/>
+        
+
+
+
+        <Label id="info" text="" visible="false" translation="[0,0]" font="font:MediumBoldSystemFont"/>
+        <Label id="tos" color="0xffdd1cff" text="Terms of Service &amp; Info" visible="true" translation="[525,10]" font="font:MediumBoldSystemFont" wrap="true" width="550"/>
+        <Label id="tos2" text="Use Companion App or Manually Input Stats | By pressing 'Continue' you agree to all the terms found here: (https://bit.ly/rokufittos)" visible="true" translation="[50,40]" font="font:MediumBoldSystemFont" wrap="true" width="1180"/>
+        
+         
+        <MiniKeyboard id = "keyboard" visible = "true" translation="[75,130]"/>
+        <Button id = "submitButton" text = "Accept &amp; Continue " showFocusFootprint = "true" minWidth = "240" visible="true" translation="[100,605]"/>
+        <Poster id = "goalBack" uri="pkg:/images/goal/goalBack.png" translation="[70, 40]" width="500" height="140" visible="false"/>
+        <Label id="miniGoal1" text="Watch 2 Cardio videos | (0/2)" visible="false" translation="[105,75]" font="font:MediumBoldSystemFont"/>
+        <Label id="miniGoal2" text="Watch 3 Conditioning videos | (0/3)" visible="false" translation="[105,115]" font="font:MediumBoldSystemFont"/>
+        <Label id="debug" text="debug" color="0xfee469ff" visible="false" translation="[40,0]" font="font:MediumBoldSystemFont"/>
+        <Poster id="videoBack" uri="pkg:/images/videoBack.png" translation="[122,198]" width="1035" height="600" visible="false"/>
+        <Poster id="motionIndicator" uri="pkg:/images/red.png" translation="[0,0]" width="20" height="1300" visible="false"/>
+
+
+        
+
+    </children>
+</component>
+
